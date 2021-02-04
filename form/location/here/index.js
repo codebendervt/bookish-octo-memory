@@ -2,12 +2,11 @@
 import { useEffect, useState } from 'components'
 import styles from 'sauveur_style'
 
-export default function Location({}) {
+export default function Location({location}) {
 
     const [service, setService] = useState();
     const [results, setResults] = useState();
-    const [value, setValue] = useState();
-    const [location, setLocation] = useState(false);
+    const [_location, setLocation] = useState(false);
 
     useEffect(() => {
         let platform = new H.service.Platform({
@@ -66,8 +65,8 @@ export default function Location({}) {
 
     const Option = ({ title, address }) => {
         return (
-            <div className="w-1/3 h-32 flex my-4 p-2 cursor-emoji" onClick={() => setValue(JSON.stringify(address))}>
-                <div className="w-32 bg-gray-100 flex items-end rounded animated  p-2  fadeIn" onClick={() => setLocation(title)}>
+            <div className="w-1/3 h-32 flex my-4 p-2 cursor-emoji">
+                <div className="w-32 bg-gray-100 flex items-end rounded animated  p-2  fadeIn" onClick={() => initLocation(title,address) }>
                     <a>{title}</a>
                 </div>
             </div>
@@ -84,6 +83,17 @@ export default function Location({}) {
             console.log("need more for the search")
         }
 
+    }
+
+    const initLocation = (title, address) => {
+        setLocation(title)
+
+        let _init = {}
+
+        _init.location = title;
+        _init.address = address;
+
+        location(_init)
     }
 
     const Searching = ({toSearch}) => {
@@ -108,17 +118,12 @@ return (
 
     <div className="w-full flex flex-wrap">
 
-          <input key={'search'} className={styles.input} placeholder="32 taurus rd" type="text" name="search" onChange={search} hidden={location}></input>
+          <input key={'search'} className={styles.input} placeholder="32 taurus rd" type="text" name="search" onChange={search} hidden={_location}></input>
 
         {
-            !location ? <Searching  toSearch={results}/> : <>your adress has been set to {location}</>
+            !_location ? <Searching  toSearch={results}/> : <>your adress has been set to {_location}</>
         }
         
-        
-        <input name="location" hidden defaultValue={location} />
-
-        <input name="adress" hidden defaultValue={value} />
-
 
     </div>
 )

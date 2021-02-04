@@ -21,6 +21,8 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
     const [itemName, setItemName] = useState()
     const [itemImage, setItemImage] = useState()
 
+    const [location, setLocation] = useState()
+
     useEffect(() => {
 
 
@@ -54,7 +56,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
                     return (
                         <div id={k} key={k} className={"w-full " + (state == k ? "animated fadeIn" : formState("hidden"))} >
 
-                            <FormInput func={createData} type={i.type} name={i.name} label={i.label} />
+                            <FormInput func={createData} type={i.type} name={i.name} label={i.label} location={setLocation} />
 
                         </div>
 
@@ -70,7 +72,9 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
                         label={i.label} 
                         value={_data[i.name]} 
                         func={editData} 
-                        mode={mode}/>
+                        mode={mode}
+                        location={location}
+                        />
                     )
                 })
         )
@@ -161,8 +165,6 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
 
 
             isBrand ? <>
-                <Head title="The Plug" />
-
                 <form action={url} method="GET" className="w-full h-full flex flex-col">
                 <div className="flex flex-col w-full h-full lg:w-screen lg:h-screen realtive">
 
@@ -193,7 +195,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
 
 
 
-                <HiddenField type={type} dataId={_dataId} mode={mode} data={data} custom={custom} />
+                <HiddenField type={type} dataId={_dataId} mode={mode} data={data} custom={custom} location={location} />
                 </form>
 
 

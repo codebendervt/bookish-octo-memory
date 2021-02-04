@@ -2,13 +2,13 @@ import Location from '../here'
 import Collection from '../collection'
 import options from '../options'
 
-const setLocation = (key,) => {
+const setLocation = (key,location) => {
 
     switch (key) {
         case options.door:
-            return <Location />
+            return <Location location={location} />
         case options.collect:
-                return <Collection />
+                return <Collection location={location} />
         default:
             return <></>
     }

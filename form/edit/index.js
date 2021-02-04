@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from 'sauveur_style'
 
 
-export default function FormEdit({ type, name, label, value, func, mode, image, uploaded }) {
+export default function FormEdit({ type, name, label, value, func, mode, image, uploaded,location }) {
 
     const [msg, setMsg] = useState('Upload product image')
     const [animation, setAnimation] = useState('')
@@ -30,7 +30,7 @@ export default function FormEdit({ type, name, label, value, func, mode, image, 
 
 
 
-                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} />
+                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} location={location} />
 
 
             </div>
@@ -42,7 +42,7 @@ export default function FormEdit({ type, name, label, value, func, mode, image, 
 //#region control
 
 
-const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation }) => {
+const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation,location }) => {
 
     if (type == "options") {
         return (<></>)
@@ -58,7 +58,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
         return (<textarea className={styles.input} rows="3" cols="50" name={name} value={value} onChange={func} />)
     }else if(type == "location"){
         return(
-            <>your adress</>
+            <div className="w-full h-full flex items-center ">{location.location}</div>
             // <Location />
         )
     } else {

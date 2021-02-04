@@ -2,12 +2,13 @@
 import { useEffect, useState } from 'components'
 import styles from 'sauveur_style'
 
-export default function Location({ }) {
+export default function Location({location}) {
 
-    const [value] = useState({ address: "collect" })
+    const [value] = useState({ location: "collect", address: "collect" })
 
     useEffect(() => {
 
+        location(value)
 
         return () => {
             cleanup
@@ -52,9 +53,6 @@ export default function Location({ }) {
         <div className="w-full flex flex-wrap">
 
             <p>You will have to pick up the order from the vendor</p>
-
-
-            <input name="location" hidden defaultValue={JSON.stringify(value)} />
 
 
         </div>

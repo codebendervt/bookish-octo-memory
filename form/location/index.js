@@ -4,7 +4,7 @@ import Choices from './components/choices'
 import renderType from './utils/type'
 import options from './options'
 
-export default function Location({}) {
+export default function Location({location}) {
 
     const [type, setType] = useState();
 
@@ -42,7 +42,7 @@ export default function Location({}) {
 
             {type ? "" : <Choices choices={[options.collect,options.door]} func={setType}/>}
 
-            {renderType(type)}
+            {renderType(type,location)}
 
 
 

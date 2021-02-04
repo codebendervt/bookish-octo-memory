@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from 'sauveur_style'
 import Location from '../location'
 
-export default function FormInput({ type, name, label, func, mode }) {
+export default function FormInput({ type, name, label, func, mode,location }) {
 
 
 
@@ -14,7 +14,7 @@ export default function FormInput({ type, name, label, func, mode }) {
 
 
 
-                <RenderControl name={name} type={type} func={func} label={label} />
+                <RenderControl name={name} type={type} location={location} func={func} label={label} />
 
                 <div className="w-32" id={name}>Required</div>
 
@@ -28,7 +28,7 @@ export default function FormInput({ type, name, label, func, mode }) {
 //#region control
 
 
-const RenderControl = ({ name, type, func, label }) => {
+const RenderControl = ({ name, type, func, label,location }) => {
 
     if (type == 'textarea') {
         return (
@@ -37,7 +37,7 @@ const RenderControl = ({ name, type, func, label }) => {
 
     }else if(type == "location"){
         return(
-            <Location />
+            <Location location={location} />
         )
     } else {
         return (
