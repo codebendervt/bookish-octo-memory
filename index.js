@@ -1,8 +1,9 @@
 import { getAll, findById,findByIndex } from '../pages/api/storage/init';
 import Store from './store'
+import AddToStore from './store/utils/add'
 
 
-export {getAll, findById, findByIndex, Store}
+export {getAll, findById, findByIndex, Store,AddToStore}
 
 
 import {GetBanks} from './io'
@@ -28,14 +29,16 @@ import Choice from './design/choice'
 export {Choice}
 
 
+import { getLocalStorage, setLocalStorage } from 'sauveur_core/utility';
 import styles from 'sauveur_style'
 import Head from './head'
 
-export {Head,styles}
+export {Head,styles,setLocalStorage,getLocalStorage}
 
 
 //models
 
-import {CleanOrder} from './models/utils'
+import {CleanOrder,InitProduct,cleanProduct} from './models/utils'
 
-export {CleanOrder}
+
+export {CleanOrder,InitProduct,cleanProduct}

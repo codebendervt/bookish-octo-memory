@@ -1,5 +1,5 @@
 
-const cleanOrder = (data) => {
+const CleanOrder = (data) => {
     return {
         id:data.id,
         brand:data.brand,
@@ -21,9 +21,10 @@ const cleanProduct = (data) => {
     return {
             name:data.name,
             quantity : data.quantity,
-            cost : data.price * data.quantity
+            cost : data.price * data.quantity,
+            price: data.price
         }
 }
 
 
-export default cleanOrder
+export {CleanOrder,cleanProduct}
