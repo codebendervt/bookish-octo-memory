@@ -24,18 +24,25 @@ export default function Header(props) {
             <meta property="og:url" content="https://devuniversity.github.io/dot/" />
 
             <link rel="apple-touch-icon" href="/images/icon_alt.png"></link>
-            <meta name="theme-color" content="#317EFB"/>
+            <meta name="theme-color" content="#317EFB" />
 
 
-            <meta name="mobile-web-app-capable" content="yes"/>
-            <meta name="apple-mobile-web-app-capable" content="yes"/>
-            <meta name="apple-mobile-web-app-status-bar-style" content="default"/> 
-            <meta name="apple-mobile-web-app-title" content="Sauveur"/>
+            <meta name="mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+            <meta name="apple-mobile-web-app-title" content="Sauveur" />
 
             {/* Global site tag (gtag.js) - Google Analytics  */}
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-GV7Q7VQ7M6"></script>
             <script async src="/scripts/ga.js"></script><link href="/manifest.json" rel="manifest"></link>
             {/* <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/sortable.js"></script> */}
+
+
+            {/* Here Maps */}
+            <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+                type="text/javascript" charset="utf-8"></script>
+            <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+                type="text/javascript" charset="utf-8"></script>
         </Head>
 
     )

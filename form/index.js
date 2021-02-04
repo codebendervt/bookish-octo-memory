@@ -9,7 +9,7 @@ import uploadFileToBlob from './utils/azureUpload.ts';
 import FormInput from './input'
 import FormEdit from './edit'
 
-export default function Form({ mode, type, data, initData = {}, modal, dataId,custom,length }) {
+export default function Form({ mode, type, data, initData = {}, modal, dataId,custom,length, url="/io/status/submit" }) {
     const [_data, setData] = useState(initData)
     const [state, setState] = useState(0);
     const [_dataId, setDataId] = useState(dataId);
@@ -163,11 +163,11 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
             isBrand ? <>
                 <Head title="The Plug" />
 
-                <form action="/io/status/submit" method="GET" className="w-full h-full flex flex-col text-white">
+                <form action={url} method="GET" className="w-full h-full flex flex-col">
                 <div className="flex flex-col w-full h-full lg:w-screen lg:h-screen realtive">
 
                     <div className="flex-grow w-full">
-                        <div className={(isMode ? "w-full flex flex-grow h-auto lg:flex-col" : "grid grid-cols-3 flex flex-col flex-grow grid-flow-row-dense gap-2 max-w-lg p-2")}>
+                        <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "grid grid-cols-3 flex flex-col flex-grow grid-flow-row-dense gap-2 max-w-lg p-2")}>
 
                             {renderForm(_data)}
 
@@ -177,7 +177,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
 
 
 
-                    <div className="w-full h-12 sticky inset-x-0 bottom-0 flex p-2 border-t border-double border-black shadow-2xl lg:shadow-none transition duration-500 ease-in-out hover:bg-black">
+                    <div className="w-full h-12 sticky inset-x-0 bottom-0 flex p-2 border-t border-double border-black shadow-2xl lg:shadow-none transition duration-500 ease-in-out hover:bg-current">
                         {
                             state < length ? (<a href={"#" + state} className={styles.form_button} onClick={() => changeState()}>next</a>) : (
 

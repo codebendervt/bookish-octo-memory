@@ -26,7 +26,7 @@ export default function FormEdit({ type, name, label, value, func, mode, image, 
 
     return (
         type == "options" && mode == "create" ? <></> :
-            <div id={name} className={`col-span-${colByType(type)} h-${heightByType(type)} bg-gray-800  rounded items-center flex relative flex-col items-center`}>
+            <div id={name} className={`col-span-${colByType(type)} h-${heightByType(type)} bg-gray-800  rounded items-center flex relative flex-col items-center text-white`}>
 
 
 
@@ -56,6 +56,11 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
         </>)
     } else if (name == "desc") {
         return (<textarea className={styles.input} rows="3" cols="50" name={name} value={value} onChange={func} />)
+    }else if(type == "location"){
+        return(
+            <>your adress</>
+            // <Location />
+        )
     } else {
         return (
             <>

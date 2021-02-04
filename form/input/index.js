@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import styles from 'sauveur_style'
-
+import Location from '../location'
 
 export default function FormInput({ type, name, label, func, mode }) {
 
@@ -35,6 +35,10 @@ const RenderControl = ({ name, type, func, label }) => {
             <textarea className={styles.input} rows="3" cols="50" name={name} onChange={func} required />
         )
 
+    }else if(type == "location"){
+        return(
+            <Location />
+        )
     } else {
         return (
             <input placeholder={name} className={styles.input} onChange={func} type={type} name={name} required></input>
