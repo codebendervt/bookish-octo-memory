@@ -1,15 +1,15 @@
-import {setLocalStorage,getLocalStorage} from 'components'
+import {$setLocalStorage,$getLocalStorage} from 'components'
 
 const AddToStore = ( item ) => {
 
     try{
 
-        if(getLocalStorage('cart')){
-            let _storage = getLocalStorage('cart')
+        if($getLocalStorage('cart')){
+            let _storage = $getLocalStorage('cart')
     
             console.log('there is something in the cart', _storage)
             _storage.cart.push(item)
-            setLocalStorage(_storage)
+            $setLocalStorage(_storage)
             console.log('after', _storage)
     
         }else{
@@ -17,7 +17,7 @@ const AddToStore = ( item ) => {
             cart.push(item)
     
             let _data = {cart: cart}
-            setLocalStorage('cart',_data)
+            $setLocalStorage('cart',_data)
         }
 
         return true

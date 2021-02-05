@@ -27,7 +27,13 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
 
 
         console.log("current modal",modal)
-        setUser(getUser().data)
+
+        try{
+            setUser(getUser().data)
+        }catch{
+            console.log("there is no backpack user")
+        }
+      
 
         setData(initData)
         //setProducImage(initData['image'])
@@ -37,8 +43,8 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
             setItemName({ name: initData['name'] })
         }
 
-        console.log("this is the user", user)
-        console.log("this is the data", _data)
+        // console.log("this is the user", user)
+        // console.log("this is the data", _data)
 
 
         return () => {

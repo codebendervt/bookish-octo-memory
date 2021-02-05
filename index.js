@@ -20,8 +20,9 @@ export {GetBanks,GuapModels,PlugModels,ModernForm,Notice,OldGuardModel}
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
+import Image from 'next/image'
 
-export {Link,useRouter,useEffect,useState}
+export {Link,useRouter,useEffect,useState,Image}
 
 
 import Choice from './design/choice'
@@ -29,11 +30,11 @@ import Choice from './design/choice'
 export {Choice}
 
 
-import { getLocalStorage, setLocalStorage } from 'sauveur_core/utility';
+import { getLocalStorage, setLocalStorage,$getLocalStorage, $setLocalStorage } from '../core/technical/core/utility';
 import styles from 'sauveur_style'
 import Head from './head'
 
-export {Head,styles,setLocalStorage,getLocalStorage}
+export {Head,styles,setLocalStorage,getLocalStorage,$setLocalStorage,$getLocalStorage}
 
 
 //models
