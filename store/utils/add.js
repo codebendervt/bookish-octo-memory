@@ -9,7 +9,7 @@ const AddToStore = ( item ) => {
     
             console.log('there is something in the cart', _storage)
             _storage.cart.push(item)
-            $setLocalStorage(_storage)
+            $setLocalStorage('cart',_storage)
             console.log('after', _storage)
     
         }else{

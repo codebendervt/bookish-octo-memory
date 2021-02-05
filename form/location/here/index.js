@@ -6,21 +6,29 @@ export default function Location({location}) {
 
     const [service, setService] = useState();
     const [results, setResults] = useState();
+    const [ready, setReady] = useState();
     const [_location, setLocation] = useState(false);
 
     useEffect(() => {
-        let platform = new H.service.Platform({
-            'apikey': 'z3lriJH_PFrGzcCLAhZeCgmL-DwQKCAF6MZJFBlBMTw'
-        });
 
-        let service = platform.getSearchService()
-        setService(service)
-
+        try{
+            let platform = new H.service.Platform({
+                'apikey': 'z3lriJH_PFrGzcCLAhZeCgmL-DwQKCAF6MZJFBlBMTw'
+            });
+    
+            let service = platform.getSearchService()
+            setService(service)
+    
+        }catch{
+            console.log('setting up service')
+            setReady(false)
+        }
+        
 
         return () => {
             cleanup
         }
-    }, [])
+    }, [ready])
 
 
 
