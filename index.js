@@ -1,9 +1,13 @@
 import { getAll, findById,findByIndex } from '../pages/api/storage/init';
 import Store from './store'
 import AddToStore from './store/utils/add'
+import GetStore from './store/utils/get'
+import GetIdentity from './identity/utils/get'
+import CreateIdentity from './identity/utils/add'
+import {CreateIssue} from './io/resource'
 
 
-export {getAll, findById, findByIndex, Store,AddToStore}
+export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity}
 
 
 import {GetBanks} from './io'
