@@ -16,11 +16,18 @@ export default function Location({location}) {
                 'apikey': 'z3lriJH_PFrGzcCLAhZeCgmL-DwQKCAF6MZJFBlBMTw'
             });
     
-            let service = platform.getSearchService()
-            setService(service)
+            let _service = platform.getSearchService()
+            console.log("current service",_service)
+
+            if(service != undefined){
+                console.log("this is the servoice",_service)
+                setService(service)
+            }else{
+                console.log('service is undefined')
+            }
     
-        }catch{
-            console.log('setting up service')
+        }catch(e){
+            console.log('setting up service',e.message)
             setReady(false)
         }
         
@@ -121,12 +128,18 @@ export default function Location({location}) {
 }
 
 
+const fallBackInput = (e) => {
+
+    let loc = {}
+    loc.location = e.target.value;
+    location(loc)
+}
 
 return (
 
     <div className="w-full flex flex-wrap">
 
-          <input key={'search'} className={styles.input} placeholder="32 taurus rd" type="text" name="search" onChange={search} hidden={_location}></input>
+          {ready ? <input key={'search'} className={styles.input} placeholder="32 taurus rd" type="text" name="search" onChange={search} hidden={_location}></input> : <input className={styles.input} placeholder={'32 Taurus Rd 0000 Province'} name="search" onChange={fallBackInput}/>}
 
         {
             !_location ? <Searching  toSearch={results}/> : <>your adress has been set to {_location}</>

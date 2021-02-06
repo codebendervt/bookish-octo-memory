@@ -16,7 +16,7 @@ export default function FormInput({ type, name, label, func, mode,location }) {
 
                 <RenderControl name={name} type={type} location={location} func={func} label={label} />
 
-                {type != "location " ?  
+                {type != "location" ?  
                 <div className="w-32" id={name}>Required</div> :<></>}
 
 
