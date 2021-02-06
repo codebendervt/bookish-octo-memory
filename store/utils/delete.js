@@ -1,25 +1,29 @@
 import {$setLocalStorage,$getLocalStorage} from 'components'
 
-const AddToStore = ( item ) => {
+const DeleteInStore = ( item ) => {
 
     try{
 
         if($getLocalStorage('cart')){
             let _storage = $getLocalStorage('cart')
+            let _cart = []
     
             console.log('there is something in the cart', _storage)
-            item.id = _storage.cart.length
-            _storage.cart.push(item)
+            _storage.cart.map((i) => {
+
+                if(i.id == item.id){
+                    console.log('item wants to be deleted')
+                }else{
+                    _cart.push(i)
+                }
+            })
+            _storage.cart = _cart
             $setLocalStorage('cart',_storage)
             console.log('after', _storage)
     
         }else{
-            let cart = []
-            item.id = 0
-            cart.push(item)
-    
-            let _data = {cart: cart}
-            $setLocalStorage('cart',_data)
+
+            console.log("what are you trying to delete")
         }
 
         return true
@@ -33,6 +37,6 @@ const AddToStore = ( item ) => {
 
 }
 
-export default AddToStore;
+export default DeleteInStore;
 
 //the begining of a new store state

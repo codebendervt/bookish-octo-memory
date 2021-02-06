@@ -26,7 +26,7 @@ export default function Notice({ message, url, func }) {
 
 
 
-        <div className={`absolute w-screen h-screen flex items-end lg:justify-end lg:p-4  z-0 ${secondAnimation}`}>
+        <div className={`absolute w-screen h-screen flex items-end lg:justify-end lg:p-4  z-30 ${secondAnimation}`}>
 
 
             <div className={`max-h-80 max-w-md  rounded rounded-t-xl bg-trueGray-900 relative flex z-10  ${animation}`}>
