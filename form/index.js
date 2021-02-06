@@ -1,4 +1,4 @@
-import Head from 'components/head'
+import { useRouter } from 'components'
 import { useEffect, useState } from 'react'
 import Modals from 'components/models'
 import styles from 'sauveur_style'
@@ -9,7 +9,7 @@ import uploadFileToBlob from './utils/azureUpload.ts';
 import FormInput from './input'
 import FormEdit from './edit'
 
-export default function Form({ mode, type, data, initData = {}, modal, dataId,custom,length, url="/io/status/submit" }) {
+export default function Form({ mode, type, data, initData = {}, modal, dataId, custom, length, theme = "", url = "/io/status/submit" }) {
     const [_data, setData] = useState(initData)
     const [state, setState] = useState(0);
     const [_dataId, setDataId] = useState(dataId);
@@ -20,20 +20,21 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
     const [isMode, setMode] = useState(mode == "create")
     const [itemName, setItemName] = useState()
     const [itemImage, setItemImage] = useState()
+    const router = useRouter()
 
     const [location, setLocation] = useState()
 
     useEffect(() => {
 
 
-        console.log("current modal",modal)
+        console.log("current modal", modal)
 
-        try{
+        try {
             setUser(getUser().data)
-        }catch{
+        } catch {
             console.log("there is no backpack user")
         }
-      
+
 
         setData(initData)
         //setProducImage(initData['image'])
@@ -72,14 +73,14 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
 
                     return (
                         <FormEdit
-                        key={i.name} 
-                        type={i.type} 
-                        name={i.name} 
-                        label={i.label} 
-                        value={_data[i.name]} 
-                        func={editData} 
-                        mode={mode}
-                        location={location}
+                            key={i.name}
+                            type={i.type}
+                            name={i.name}
+                            label={i.label}
+                            value={_data[i.name]}
+                            func={editData}
+                            mode={mode}
+                            location={location}
                         />
                     )
                 })
@@ -166,16 +167,18 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
     }
 
     return (
-      
 
 
 
-            isBrand ? <>
-                <form action={url} method="GET" className="w-full h-full flex flex-col">
-                <div className="flex flex-col w-full h-full lg:w-screen lg:h-screen realtive">
 
-                    <div className="flex-grow w-full">
-                        <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "grid grid-cols-3 flex flex-col flex-grow grid-flow-row-dense gap-2 max-w-lg p-2")}>
+        isBrand ? <>
+            <form action={url} method="GET" className={`w-full h-screen flex flex-col  `}>
+
+                <div className={`flex flex-col w-full h-full lg:w-screen lg:h-screen realtive `}>
+
+                    <div onClick={() => router.back()} className="absolute font-default-accent w-full px-4 p-2 flex justify-end cursor-emoji">back</div>
+                    <div className="flex-grow w-full overflow-y-scroll hidescroll">
+                        <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "grid grid-cols-3 flex flex-col flex-grow grid-flow-row-dense gap-2 max-w-lg p-2 ")}>
 
                             {renderForm(_data)}
 
@@ -185,7 +188,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
 
 
 
-                    <div className="w-full h-12 sticky inset-x-0 bottom-0 flex p-2 border-t border-double border-black shadow-2xl lg:shadow-none transition duration-500 ease-in-out hover:bg-current">
+                    <div className={`w-full h-12 sticky inset-x-0 bottom-0 flex p-2 transition duration-500 ease-in-out ${theme}`}>
                         {
                             state < length ? (<a href={"#" + state} className={styles.form_button} onClick={() => changeState()}>next</a>) : (
 
@@ -202,12 +205,12 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId,cu
 
 
                 <HiddenField type={type} dataId={_dataId} mode={mode} data={data} custom={custom} location={location} />
-                </form>
+            </form>
 
 
-            </> : <IsAuth auth={false} url={`/io/form/create?type=brand&id=${user.email}`} message={"You Do not have a brand signed up, create one below"} btn="Create Brand" />
+        </> : <IsAuth auth={false} url={`/io/form/create?type=brand&id=${user.email}`} message={"You Do not have a brand signed up, create one below"} btn="Create Brand" />
 
-        
+
 
     )
 }

@@ -1,6 +1,6 @@
 import {$setLocalStorage,$getLocalStorage} from 'components'
 
-const DeleteInStore = ( item ) => {
+const DeleteInStore = ( id ) => {
 
     try{
 
@@ -11,7 +11,7 @@ const DeleteInStore = ( item ) => {
             console.log('there is something in the cart', _storage)
             _storage.cart.map((i) => {
 
-                if(i.id == item.id){
+                if(i.id == id){
                     console.log('item wants to be deleted')
                 }else{
                     _cart.push(i)
