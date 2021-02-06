@@ -8,8 +8,9 @@ import GetIdentity from './identity/utils/get'
 import CreateIdentity from './identity/utils/add'
 import {CreateIssue} from './io/resource'
 
+import {InitTransaction} from './io/guap'
 
-export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore}
+export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction}
 
 
 import {GetBanks} from './io'
@@ -18,6 +19,7 @@ import PlugModels from './models/plug'
 import OldGuardModel from './models/oldguard'
 import ModernForm from './form'
 import Notice from './notice'
+
 
 export {GetBanks,GuapModels,PlugModels,ModernForm,Notice,OldGuardModel}
 

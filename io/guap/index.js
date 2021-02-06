@@ -32,4 +32,26 @@ const CreateGuap = async (data, brand) => {
     return result
 }
 
-export { GetBanks, CreateGuap };
+const InitTransaction = async(payload,brand) =>{
+
+    let _data = {id:brand}
+    const {data}  = await RequestAPI(APIEndpoint.getGuap, _data)
+    
+    console.log(data.code)
+    console.log(payload)
+
+    const createTransaction = {
+        email : payload.customer.contact,
+        amount : payload.price,
+        callback_url : "",
+        subaccount : data.code
+    }
+
+    console.log(createTransaction)
+
+   const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
+
+   console.log(transaction)
+}
+
+export { GetBanks, CreateGuap,InitTransaction };
