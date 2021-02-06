@@ -3,14 +3,15 @@ import Store from './store'
 import AddToStore from './store/utils/add'
 import GetStore from './store/utils/get'
 import DeleteInStore from './store/utils/delete'
+import SecureStore from './store/utils/secure'
 
 import GetIdentity from './identity/utils/get'
 import CreateIdentity from './identity/utils/add'
-import {CreateIssue} from './io/resource'
+import SecureIdentity from './identity/utils/secure'
+import {CreateToken,CreateIssue,InitTransaction} from './io'
 
-import {InitTransaction} from './io/guap'
 
-export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction}
+export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity}
 
 
 import {GetBanks} from './io'

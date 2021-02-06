@@ -22,7 +22,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
     const [itemImage, setItemImage] = useState()
     const router = useRouter()
 
-    const [location, setLocation] = useState()
+    const [location, setLocation] = useState({location:""})
 
     useEffect(() => {
 
@@ -177,8 +177,8 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
                 <div className={`flex flex-col w-full h-full lg:w-screen lg:h-screen realtive `}>
 
                     <div onClick={() => router.back()} className="absolute font-default-accent w-full px-4 p-2 flex justify-end cursor-emoji z-20">back</div>
-                    <div className="flex-grow w-full overflow-y-scroll hidescroll">
-                        <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "grid grid-cols-3 flex flex-col flex-wrap flex-grow lg:grid-flow-row-dense lg: gap-2 w-full lg:max-w-lg p-2 ")}>
+                    <div className="flex-grow w-full overflow-y-scroll hidescroll p-2 py-8 lg:py-0">
+                        <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "grid grid-cols-4 gap-2 lg:max-w-lg py-4")}>
 
                             {renderForm(_data)}
 
@@ -190,12 +190,14 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
 
                     <div className={`w-full h-12 sticky inset-x-0 bottom-0 flex p-2 transition duration-500 ease-in-out ${theme}`}>
                         {
+                            modal == "identity" ? <></> :
                             state < length ? (<a href={"#" + state} className={styles.form_button} onClick={() => changeState()}>next</a>) : (
 
                                 <div className={styles.form_submit}><button className="cursor-emoji" type="submit">
                                     {mode == "create" ? "submit" : "update"}
 
                                 </button></div>)
+                                
                         }
 
                     </div>

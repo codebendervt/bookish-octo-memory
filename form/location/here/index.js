@@ -8,6 +8,7 @@ export default function Location({location}) {
     const [results, setResults] = useState();
     const [ready, setReady] = useState();
     const [_location, setLocation] = useState(false);
+    const [init, setInit] = useState();
 
     useEffect(() => {
 
@@ -70,6 +71,8 @@ export default function Location({location}) {
 
     const cleanup = () => {
         console.log("location figured")
+        location(init)
+        console.log(init)
     }
 
 
@@ -102,6 +105,7 @@ export default function Location({location}) {
 
         _init.location = title;
         _init.address = address;
+        setInit(_init)
 
         location(_init)
     }

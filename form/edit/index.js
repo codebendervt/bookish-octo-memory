@@ -99,7 +99,8 @@ const Notice = ({ text, animation }) => {
 const colByType = (type) => {
 
     switch (type) {
-
+        case "location":
+            return 4;
         default:
             return 2;
     }

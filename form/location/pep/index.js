@@ -42,7 +42,8 @@ export default function Location({location}) {
 
 
     const cleanup = () => {
-        console.log("location figured")
+        location(value)
+        console.log("location figured",value)
     }
 
 

@@ -11,4 +11,5 @@ export default {
     getGuap : "/api/storage/guap/identity",
     issue : "/api/resource/github/issue",
     comment : "/api/resource/github/comment",
+    createToken : "/api/token",
 }
