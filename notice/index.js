@@ -14,7 +14,7 @@ export default function Notice({ message, url, func }) {
             setAnimation('animated fadeOutDown')
             setsecondAnimation('animated fadeOutDown delay-2s')
             
-        }, 5000);
+        }, 3000);
         return () => {
             console.log('leave')
             func(false)

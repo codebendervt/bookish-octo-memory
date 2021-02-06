@@ -40,7 +40,7 @@ export default function Location({location}) {
 
         <div className="w-full flex flex-wrap">
 
-            {type ? "" : <Choices choices={[options.collect,options.door]} func={setType}/>}
+            {type ? "" : <Choices choices={[options.collect,options.door,options.pep]} func={setType}/>}
 
             {renderType(type,location)}
 
