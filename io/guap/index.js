@@ -3,6 +3,8 @@ import { getLocalStorage, setLocalStorage } from 'sauveur_core/utility';
 import { RecieveAPI, APIEndpoint, RequestAPI, RemoveAPI } from '../../models/utils'
 
 
+const url = "https://oldguard.sauveur.cloud/io/status/confirm"
+const devUrl = "http://localhost:3000/io/status/confirm"
 const GetBanks = async () => {
 
     const result = await RecieveAPI(APIEndpoint.bank)
@@ -32,26 +34,33 @@ const CreateGuap = async (data, brand) => {
     return result
 }
 
-const InitTransaction = async(payload,brand) =>{
+const InitTransaction = async(payload,brand,id) =>{
 
     let _data = {id:brand}
     const {data}  = await RequestAPI(APIEndpoint.getGuap, _data)
-    
-    console.log(data.code)
-    console.log(payload)
+    let total = 0
 
-    const createTransaction = {
-        email : payload.customer.contact,
-        amount : payload.price,
-        callback_url : "",
-        subaccount : data.code
+    payload.cart.map((i) => {
+        total += i.cost
+    })
+
+    let custom_fields = {
+        custom_fields :[{display_name:brand}]
     }
 
-    console.log(createTransaction)
+    const createTransaction = {
+        email : `${payload.customer.identity.contact}@${payload.brand}.xyz`,
+        amount :total * 100,
+        callback_url : `${devUrl}?id=${id}`,
+        subaccount : data.code,
+        metadata: JSON.stringify(custom_fields)
+    }
 
-   const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
+    console.log('curen data',createTransaction)
 
-   console.log(transaction)
+     const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
+
+     return transaction
 }
 
 export { GetBanks, CreateGuap,InitTransaction };
