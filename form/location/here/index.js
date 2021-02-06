@@ -17,14 +17,9 @@ export default function Location({location}) {
             });
     
             let _service = platform.getSearchService()
-            console.log("current service",_service)
-
-            if(service != undefined){
-                console.log("this is the servoice",_service)
-                setService(service)
-            }else{
-                console.log('service is undefined')
-            }
+            //console.log("current service",_service)
+            setService(_service)
+            setReady(true)
     
         }catch(e){
             console.log('setting up service',e.message)
@@ -81,7 +76,7 @@ export default function Location({location}) {
     const Option = ({ title, address }) => {
         return (
             <div className="w-1/3 h-32 flex my-4 p-2 cursor-emoji">
-                <div className="w-32 bg-gray-100 flex items-end rounded animated  p-2  fadeIn" onClick={() => initLocation(title,address) }>
+                <div className="w-32 bg-gray-100 flex items-end rounded animated  p-2  fadeIn text-xs lg:text-sm" onClick={() => initLocation(title,address) }>
                     <a>{title}</a>
                 </div>
             </div>
@@ -142,7 +137,7 @@ return (
           {ready ? <input key={'search'} className={styles.input} placeholder="32 taurus rd" type="text" name="search" onChange={search} hidden={_location}></input> : <input className={styles.input} placeholder={'32 Taurus Rd 0000 Province'} name="search" onChange={fallBackInput}/>}
 
         {
-            !_location ? <Searching  toSearch={results}/> : <>your adress has been set to {_location}</>
+            !_location ? <Searching  toSearch={results}/> : <div className=" mx-3 p-2 text-lg ">your adress has been set to <span className="font-bold">{_location}</span></div>
         }
         
 

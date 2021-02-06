@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from 'sauveur_style'
 
 
-export default function FormEdit({ type, name, label, value, func, mode, image, uploaded,location }) {
+export default function FormEdit({ type, name, label, value, func, mode, image, uploaded, location }) {
 
     const [msg, setMsg] = useState('Upload product image')
     const [animation, setAnimation] = useState('')
@@ -14,8 +14,7 @@ export default function FormEdit({ type, name, label, value, func, mode, image, 
         }
     }, [])
 
-    const addFileListener = () =>
-    {
+    const addFileListener = () => {
         document.getElementById('image').addEventListener('click', () => {
             setMsg("Uploading image")
             setAnimation("animate-pulse")
@@ -42,7 +41,7 @@ export default function FormEdit({ type, name, label, value, func, mode, image, 
 //#region control
 
 
-const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation,location }) => {
+const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation, location }) => {
 
     if (type == "options") {
         return (<></>)
@@ -56,9 +55,13 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
         </>)
     } else if (name == "desc") {
         return (<textarea className={styles.input} rows="3" cols="50" name={name} value={value} onChange={func} />)
-    }else if(type == "location"){
-        return(
-            <div className="w-full h-full flex items-center ">{location.location}</div>
+    } else if (type == "location") {
+        return (
+            <>
+                <div className="w-full  px-4">{label}</div>
+                <div className=" text-sm w-full h-full flex items-center px-4 ">{location.location}
+                </div>
+            </>
             // <Location />
         )
     } else {

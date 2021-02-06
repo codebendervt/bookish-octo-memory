@@ -192,7 +192,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
                         {
                             state < length ? (<a href={"#" + state} className={styles.form_button} onClick={() => changeState()}>next</a>) : (
 
-                                <div className={styles.form_submit}><button type="submit">
+                                <div className={styles.form_submit}><button className="cursor-emoji" type="submit">
                                     {mode == "create" ? "submit" : "update"}
 
                                 </button></div>)

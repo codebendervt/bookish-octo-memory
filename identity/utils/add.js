@@ -1,11 +1,11 @@
-import {$setLocalStorage,$getLocalStorage} from 'components'
+import {setLocalStorage,getLocalStorage} from 'components'
 
 const CreateIdentity = ( item ) => {
 
     try{
 
-        if($getLocalStorage('identity')){
-            let _storage = $getLocalStorage('identity')
+        if(getLocalStorage('identity')){
+            let _storage = getLocalStorage('identity')
     
             console.log('there is alreay and idenity', _storage)
           
@@ -14,7 +14,7 @@ const CreateIdentity = ( item ) => {
         
     
             let _data = {idenity: item}
-            $setLocalStorage('identity',_data)
+            setLocalStorage('identity',_data)
         }
 
         return true

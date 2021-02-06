@@ -1,4 +1,4 @@
-import {$getLocalStorage} from 'components'
+import {getLocalStorage} from 'components'
 
 const GetIdentity = ( ) => {
 
@@ -6,12 +6,12 @@ const GetIdentity = ( ) => {
 
     try{
 
-        if($getLocalStorage('identity')){
-            store = $getLocalStorage('identity')
+        if(getLocalStorage('identity')){
+            store = getLocalStorage('identity')
     
     
         }else{
-            store = {}
+            store = false
         }
 
         return store
