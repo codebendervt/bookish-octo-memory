@@ -5,14 +5,14 @@ import { useEffect, Link, useState } from 'components'
 export default function Notice({ message, url, func }) {
 
     const [animation, setAnimation] = useState('animated fadeInUp delay-1s')
-    const [secondAnimation, setsecondAnimation] = useState('animated fadeInUp')
+    const [secondAnimation, setsecondAnimation] = useState(' z-30 animated fadeInUp')
 
     useEffect(() => {
         setTimeout(() =>{
             console.log("help")
             
             setAnimation('animated fadeOutDown')
-            setsecondAnimation('animated fadeOutDown delay-1s')
+            setsecondAnimation('animated fadeOutDown delay-1s z-0')
             
         }, 3000);
         return () => {
@@ -26,7 +26,7 @@ export default function Notice({ message, url, func }) {
 
 
 
-        <div className={`absolute w-screen h-screen flex items-end lg:justify-end lg:p-4  z-30 ${secondAnimation}`}>
+        <div className={`absolute w-screen h-screen flex items-end lg:justify-end lg:p-4  ${secondAnimation}`}>
 
 
             <div className={`max-h-80 max-w-md  rounded rounded-t-xl bg-trueGray-900 relative flex z-10  ${animation}`}>

@@ -27,7 +27,7 @@ const CreateIdentity = (item) => {
         _identity.location = item.location
 
 
-        let _data = { _identity }
+        let _data =  _identity 
         setLocalStorage('identity', _data)
 
         return true

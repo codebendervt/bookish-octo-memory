@@ -58,7 +58,7 @@ const InitTransaction = async(payload,brand,id) =>{
         metadata: JSON.stringify(custom_fields)
     }
 
-    //console.log('curen data',createTransaction)
+    console.log('curent data',createTransaction)
 
      const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
 
