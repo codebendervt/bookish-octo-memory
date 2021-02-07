@@ -56,11 +56,21 @@ const InitTransaction = async(payload,brand,id) =>{
         metadata: JSON.stringify(custom_fields)
     }
 
-    console.log('curen data',createTransaction)
+    //console.log('curen data',createTransaction)
 
      const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
 
      return transaction
 }
 
-export { GetBanks, CreateGuap,InitTransaction };
+const VerifyTransaction = async(ref) => {
+
+    let _data = {referance:ref}
+    //console.log("data to verify",_data)
+    const {data}  = await RequestAPI(APIEndpoint.verifyTransact, _data)
+    
+    return data
+
+}
+
+export { GetBanks, CreateGuap,InitTransaction,VerifyTransaction };

@@ -2,11 +2,12 @@ import getUser from './user'
 import isAuth from './auth'
 import {getPlug,UpdateCloudPlug,UpdateLocalPlug,DeletePlug} from './plug'
 import getBrand from './genus'
-import {GetBanks, CreateGuap,InitTransaction } from './guap'
+import {GetBanks, CreateGuap,InitTransaction,VerifyTransaction } from './guap'
+import {CreateOrder,GetOrder,UpdateCloudOrder } from './order'
 import {BackpackIdentity,UpdateLocalBackpack,UpdateCloudBackpack} from './backpack'
 
 import {CreateIssue,CommentOnIssue} from './resource';
-import {CreateToken} from './security/token';
+import {CreateToken,ReadToken} from './security/token';
 
 
-export {getUser,isAuth,BackpackIdentity,UpdateLocalBackpack,UpdateCloudBackpack,getPlug,getBrand, UpdateCloudPlug,UpdateLocalPlug,DeletePlug,CreateIssue,CommentOnIssue,GetBanks,CreateGuap,CreateToken,InitTransaction}
+export {getUser,isAuth,BackpackIdentity,UpdateLocalBackpack,UpdateCloudBackpack,getPlug,getBrand, UpdateCloudPlug,UpdateLocalPlug,DeletePlug,CreateIssue,CommentOnIssue,GetBanks,CreateGuap,CreateToken,InitTransaction,CreateOrder,VerifyTransaction,ReadToken,GetOrder,UpdateCloudOrder}

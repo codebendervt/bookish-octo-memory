@@ -1,5 +1,5 @@
 
-export default function HiddenFields({ type, dataId, mode, data,location={}, custom = {} }) {
+export default function HiddenFields({ type, dataId, mode, data, custom = {} }) {
 
     return (
 
@@ -11,7 +11,7 @@ export default function HiddenFields({ type, dataId, mode, data,location={}, cus
             <input hidden type="text" defaultValue={mode} name="mode" hidden ></input>
             <input hidden type="text" defaultValue={JSON.stringify(data)} name="data" hidden ></input>
 
-            <input hidden type="text" defaultValue={JSON.stringify(location)} name="location" hidden ></input>
+         
         </>
 
     )

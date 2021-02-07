@@ -25,12 +25,11 @@ export default function FormEdit({ type, name, label, value, func, mode, image, 
 
     return (
         type == "options" && mode == "create" ? <></> :
-            <div id={name} className={`col-span-${colByType(type)} h-${heightByType(type)} bg-gray-800  rounded items-center flex relative flex-col items-center text-white`}>
+            <div id={name} className={`w-${colByType(type)} h-${heightByType(type)} p-2`}>
+                <div className=" h-full bg-gray-800  rounded items-center flex relative flex-col items-center text-white">
 
-
-
-                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} location={location} />
-
+                    <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} location={location} />
+                </div>
 
             </div>
     )
@@ -60,6 +59,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
             <>
                 <div className="w-full  px-4">{label}</div>
                 <div className=" text-sm w-full h-full flex items-center px-4 ">{location.location}
+                <input hidden type="text" defaultValue={JSON.stringify(location)} name="location" hidden ></input>
                 </div>
             </>
             // <Location />
@@ -100,9 +100,9 @@ const colByType = (type) => {
 
     switch (type) {
         case "location":
-            return 4;
+            return "full";
         default:
-            return 2;
+            return "1/2";
     }
 
 }

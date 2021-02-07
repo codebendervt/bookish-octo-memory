@@ -12,7 +12,7 @@ export default function Notice({ message, url, func }) {
             console.log("help")
             
             setAnimation('animated fadeOutDown')
-            setsecondAnimation('animated fadeOutDown delay-2s')
+            setsecondAnimation('animated fadeOutDown delay-1s')
             
         }, 3000);
         return () => {

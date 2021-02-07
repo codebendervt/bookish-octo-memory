@@ -19,6 +19,20 @@ const CreateToken = async (data) => {
 
 }
 
+const ReadToken = async (data) => {
+    //will eventually use brand to maybe increase securirtyconso
+
+    try{
+        console.log('decrypting...')
+        const init = await RequestAPI(APIEndpoint.readToken, data)
+    
+        return init
+    }catch(e){
+        console.log('what could possibly be the problem',e)
+    }
+
+}
 
 
-export {CreateToken}
+
+export {CreateToken,ReadToken}

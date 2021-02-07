@@ -178,7 +178,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
 
                     <div onClick={() => router.back()} className="absolute font-default-accent w-full px-4 p-2 flex justify-end cursor-emoji z-20">back</div>
                     <div className="flex-grow w-full overflow-y-scroll hidescroll p-2 py-8 lg:py-0">
-                        <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "grid grid-cols-4 gap-2 lg:max-w-lg py-4")}>
+                        <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "w-full flex flex-wrap lg:max-w-lg")}>
 
                             {renderForm(_data)}
 

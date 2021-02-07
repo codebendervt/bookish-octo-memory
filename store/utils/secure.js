@@ -1,29 +1,35 @@
-import {$getLocalStorage,CreateToken} from 'components'
+import { $getLocalStorage, CreateToken } from 'components'
 
-const SecureStore = async( ) => {
+const SecureStore = async (isCheckout = true) => {
 
     let store = {}
     let _secureStore = undefined
 
-    try{
+    try {
 
-        if($getLocalStorage('cart')){
+        if ($getLocalStorage('cart')) {
             store = $getLocalStorage('cart')
-            
-            _secureStore  = await CreateToken(store)
 
-            console.log("encrypted store",_secureStore)
-    
-        }else{
+            if (isCheckout) {
+
+                store.order = "new"
+                store.payment = "pending"
+            }
+
+            _secureStore = await CreateToken(store)
+
+            //console.log("encrypted store",_secureStore)
+
+        } else {
             store = {}
         }
 
-        
+
         return _secureStore
 
-    } catch(e){
+    } catch (e) {
 
-        console.log('error',e.message)
+        console.log('error', e.message)
         //return false
     }
 
