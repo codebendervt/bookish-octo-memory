@@ -17,7 +17,7 @@ const CreateOrder = async (data) => {
             data: data
         };
         const init = await RequestAPI(APIEndpoint.order, _data)
-        console.log("order is",init)
+        //console.log("order is",init)
         return init
     } catch (e) {
         console.log("unable to create order".e.message)

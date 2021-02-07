@@ -4,6 +4,7 @@ import AddToStore from './store/utils/add'
 import GetStore from './store/utils/get'
 import DeleteInStore from './store/utils/delete'
 import SecureStore from './store/utils/secure'
+import DeleteStore from './store/utils/clear'
 
 import GetIdentity from './identity/utils/get'
 import CreateIdentity from './identity/utils/add'
@@ -11,7 +12,7 @@ import SecureIdentity from './identity/utils/secure'
 import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken} from './io'
 
 
-export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken}
+export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore}
 
 
 import {GetBanks} from './io'
@@ -39,11 +40,11 @@ import Choice from './design/choice'
 export {Choice}
 
 
-import { getLocalStorage, setLocalStorage,$getLocalStorage, $setLocalStorage } from '../core/technical/core/utility';
+import { getLocalStorage, setLocalStorage,$getLocalStorage, $setLocalStorage,$deleteStorage } from '../core/technical/core/utility';
 import styles from 'sauveur_style'
 import Head from './head'
 
-export {Head,styles,setLocalStorage,getLocalStorage,$setLocalStorage,$getLocalStorage}
+export {Head,styles,setLocalStorage,getLocalStorage,$setLocalStorage,$getLocalStorage,$deleteStorage}
 
 
 //models

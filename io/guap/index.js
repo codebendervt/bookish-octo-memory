@@ -36,6 +36,8 @@ const CreateGuap = async (data, brand) => {
 
 const InitTransaction = async(payload,brand,id) =>{
 
+    console.log(payload)
+
     let _data = {id:brand}
     const {data}  = await RequestAPI(APIEndpoint.getGuap, _data)
     let total = 0
@@ -49,7 +51,7 @@ const InitTransaction = async(payload,brand,id) =>{
     }
 
     const createTransaction = {
-        email : `${payload.customer.identity.contact}@${payload.brand}.xyz`,
+        email : `${payload.customer.contact}@${payload.brand}.xyz`,
         amount :total * 100,
         callback_url : `${devUrl}?id=${id}`,
         subaccount : data.code,
