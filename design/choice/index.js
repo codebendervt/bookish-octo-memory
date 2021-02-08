@@ -5,7 +5,7 @@ export default function Choice({ choice,url }) {
     const [animation, setAnimation] = useState('animated fadeIn')
 
     const loading = () => {
-        setAnimation('animated-pulse')
+        setAnimation('animate-pulse')
     }
 
     return (

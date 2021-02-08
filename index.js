@@ -9,10 +9,10 @@ import DeleteStore from './store/utils/clear'
 import GetIdentity from './identity/utils/get'
 import CreateIdentity from './identity/utils/add'
 import SecureIdentity from './identity/utils/secure'
-import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken} from './io'
+import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,hasAccount} from './io'
 
 
-export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore}
+export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,hasAccount}
 
 
 import {GetBanks} from './io'
@@ -35,9 +35,9 @@ import Image from 'next/image'
 export {Link,useRouter,useEffect,useState,Image}
 
 
-import Choice from './design/choice'
+import {Choice,Section} from './design'
 
-export {Choice}
+export {Choice,Section}
 
 
 import { getLocalStorage, setLocalStorage,$getLocalStorage, $setLocalStorage,$deleteStorage } from '../core/technical/core/utility';
