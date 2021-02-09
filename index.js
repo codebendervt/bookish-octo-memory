@@ -41,7 +41,7 @@ export {Choice,Section}
 
 
 import { getLocalStorage, setLocalStorage,$getLocalStorage, $setLocalStorage,$deleteStorage } from '../core/technical/core/utility';
-import styles from 'sauveur_style'
+import styles from '../core/styles'
 import Head from './head'
 
 export {Head,styles,setLocalStorage,getLocalStorage,$setLocalStorage,$getLocalStorage,$deleteStorage}

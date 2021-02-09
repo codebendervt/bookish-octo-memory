@@ -1,7 +1,7 @@
 import { useRouter } from 'components'
 import { useEffect, useState } from 'react'
 import Modals from 'components/models'
-import styles from 'sauveur_style'
+import {styles} from 'components'
 import HiddenField from './utils/hidden';
 import { getUser } from 'components/io';
 import IsAuth from 'components/status/isAuth'
@@ -188,7 +188,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
 
 
 
-                    <div className={`w-full h-12 sticky inset-x-0 bottom-0 flex p-2 transition duration-500 ease-in-out ${theme}`}>
+                    <div className={`w-full h-12 sticky inset-x-0 bottom-0 flex p-2 transition duration-500 ease-in-out justify-center lg:justify-start ${theme}`}>
                         {
                             modal == "identity" ? <></> :
                             state < length ? (<a href={"#" + state} className={styles.form_button} onClick={() => changeState()}>next</a>) : (
