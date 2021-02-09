@@ -7,7 +7,8 @@ export default {
         },{
             name:"contact",
             label:"Your Whatsapp Number",
-            type:"number"
+            type:"number",
+            placeholder:"0000000000"
         }, {
             name:"location",
             label:"Where to deliver your order",
