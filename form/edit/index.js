@@ -115,7 +115,7 @@ const heightByType = (type) => {
         case "file":
             return 20
         default:
-            return 20
+            return 23
     }
 }
 

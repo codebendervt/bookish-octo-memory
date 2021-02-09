@@ -108,23 +108,36 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
 
     const createData = (e) => {
         try {
-            if (e.target.type == "file") {
-                console.log('uploading file')
-                fileUpload(e)
+           
+            
+            //console.log(e)
 
+            if(typeof(e) == "object" && e.target == undefined){
+                let _value = Object.assign(_data, e)
+                
+                console.log("what is up now",e)
+                setData(_value)
             } else {
+
+                if (e.target.type == "file") {
+                    console.log('uploading file')
+                    fileUpload(e)
+    
+                }
 
                 if (e.target.name == 'name') {
                     setItemName({ [e.target.name]: e.target.value })
-                    setData({ [e.target.name]: e.target.value })
-                } else {
-                    let _value = Object.assign(_data, { [e.target.name]: e.target.value })
-                    setData(_value)
+                    // setData({ [e.target.name]: e.target.value })
                 }
 
+
+                let _value = Object.assign(_data, { [e.target.name]: e.target.value })
+                setData(_value)
+
+                let elmText = document.getElementById(e.target.name);
+                elmText.innerText = CheckRequired(e);
             }
-            let elmText = document.getElementById(e.target.name);
-            elmText.innerText = CheckRequired(e);
+          
 
         } catch (err) {
             console.error("unable to edit form line 113 Modern Form", err)
@@ -166,6 +179,16 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
         }
     }
 
+    const  formBack = () =>{
+
+        if(state > 0){
+            setState(state - 1)
+        }else{
+            router.back()
+        }
+       
+    }
+
     return (
 
 
@@ -176,7 +199,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
 
                 <div className={`flex flex-col w-full h-full lg:w-screen lg:h-screen realtive `}>
 
-                    <div onClick={() => router.back()} className="absolute font-default-accent w-full px-4 p-2 flex justify-end cursor-emoji z-20">back</div>
+                    <div onClick={() => formBack()} className="absolute font-default-accent w-full px-4 p-2 flex justify-end cursor-emoji z-20">back</div>
                     <div className="flex-grow w-full overflow-y-scroll hidescroll p-2 py-8 lg:py-0">
                         <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "w-full flex flex-wrap lg:max-w-lg")}>
 

@@ -65,6 +65,29 @@ const InitTransaction = async (payload, brand, id) => {
     return transaction
 }
 
+const InitSimpleTransaction = async (payload, brand, id) => {
+
+    console.log(payload)
+
+    let custom_fields = {
+        custom_fields: [{ display_name: brand }]
+    }
+
+    const createTransaction = {
+        email: `${payload.contact}@${payload.brand}.xyz`,
+        amount: payload.amount * 100,
+        callback_url: `${devUrl}?id=${id}`,
+        subaccount: payload.code,
+        metadata: JSON.stringify(custom_fields)
+    }
+
+    console.log('curent data', createTransaction)
+
+    const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
+
+    return transaction
+}
+
 const VerifyTransaction = async (ref) => {
 
     let _data = { referance: ref }
@@ -88,4 +111,4 @@ const hasAccount = () => {
 
 }
 
-export { GetBanks, CreateGuap, InitTransaction, VerifyTransaction,hasAccount };
+export { GetBanks, CreateGuap, InitTransaction, VerifyTransaction,hasAccount,InitSimpleTransaction };

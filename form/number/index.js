@@ -5,7 +5,6 @@ export default function GuapInvoice({label,func,name}) {
     const [account, setAccount] = useState(false)
     const [values] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
     const [amount, setAmount] = useState('')
-    const [url] = useState('/toolbox/guap/pay')
 
     useEffect(() => {
 
@@ -25,18 +24,21 @@ export default function GuapInvoice({label,func,name}) {
     const onChange = (i) => {
 
         setAmount(i.target.value)
-        func({ [i.target.name]: i.target.value })
+        func({[i.target.name]: i.target.value })
 
     }
 
     const changeNumber = (i) => {
-        console.log(i)
+        //console.log(i)
         let _newAmount = i.toString();
         if (amount) {
             _newAmount = amount + i.toString()
         }
 
         setAmount(_newAmount)
+        
+        func({[name]: _newAmount })
+
     }
 
     const deleteNumber = () => {
@@ -44,7 +46,7 @@ export default function GuapInvoice({label,func,name}) {
         try{
             let _newAmount = amount.split('')
             _newAmount.pop()
-            console.log(_newAmount)
+            //console.log(_newAmount)
             setAmount(_newAmount.join(''))
         }catch(ex){
 
