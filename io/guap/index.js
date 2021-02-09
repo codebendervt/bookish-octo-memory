@@ -75,7 +75,7 @@ const VerifyTransaction = async (ref) => {
 
 }
 
-const hasAccount = async () => {
+const hasAccount = () => {
 
     try{
         const result = getLocalStorage('guap')
