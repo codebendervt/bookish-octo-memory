@@ -3,7 +3,8 @@ export default {
         {
             name:"amount",
             label: "Amount to bill",
-            type:"number"
+            type:"number",
+            placeholder : "00.00"
         },
         {
             name:"name",

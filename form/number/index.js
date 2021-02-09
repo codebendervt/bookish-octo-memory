@@ -1,25 +1,25 @@
 import { hasAccount, useEffect, useState } from 'components'
 
-export default function GuapInvoice({label,func,name}) {
-    const [isValid, setValid] = useState(false)
-    const [account, setAccount] = useState(false)
+export default function GuapInvoice({label,func,name,placeholder="00.00"}) {
+    // const [isValid, setValid] = useState(false)
+    // const [account, setAccount] = useState(false)
     const [values] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
     const [amount, setAmount] = useState('')
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        if (hasAccount() && !isValid) {
+    //     if (hasAccount() && !isValid) {
 
-            console.log('has account')
-            setAccount(hasAccount().data)
+    //         //console.log('has account')
+    //         setAccount(hasAccount().data)
 
-            setValid(true)
-        }
+    //         setValid(true)
+    //     }
 
-        return () => {
-            console.log("cleaning up")
-        }
-    }, [account])
+    //     return () => {
+    //         console.log("cleaning up")
+    //     }
+    // }, [account])
 
     const onChange = (i) => {
 
@@ -71,7 +71,7 @@ export default function GuapInvoice({label,func,name}) {
                 </div>
                 <div className="w-64 h-full relative flex items-end justify-center">
 
-                    <input className="w-64 appearance-none bg-transparent text-center font-default-title text-white" type="text" name={name} placeholder="00.00" value={amount} onChange={onChange} />
+                    <input className="w-64 appearance-none bg-transparent text-center font-default-title text-white" type="text" name={name} placeholder={placeholder} value={amount} onChange={onChange} />
 
                 </div>
 

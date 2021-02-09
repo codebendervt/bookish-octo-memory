@@ -63,7 +63,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
                     return (
                         <div id={k} key={k} className={"w-full " + (state == k ? "animated fadeIn" : formState("hidden"))} >
 
-                            <FormInput func={createData} type={i.type} name={i.name} label={i.label} location={setLocation} />
+                            <FormInput func={createData} type={i.type} name={i.name} label={i.label} model={i} location={setLocation} />
 
                         </div>
 
@@ -114,8 +114,6 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
 
             if(typeof(e) == "object" && e.target == undefined){
                 let _value = Object.assign(_data, e)
-                
-                console.log("what is up now",e)
                 setData(_value)
             } else {
 

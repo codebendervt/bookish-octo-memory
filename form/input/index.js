@@ -3,7 +3,7 @@ import {styles} from 'components'
 import Location from '../location'
 import Number from '../number'
 
-export default function FormInput({ type, name, label, func, mode, location }) {
+export default function FormInput({ type, name, label, func, model, location }) {
 
     const [isNumber] =useState(type !== 'number')
 
@@ -21,7 +21,7 @@ export default function FormInput({ type, name, label, func, mode, location }) {
 
 
 
-                <RenderControl name={name} type={type} location={location} func={func} label={label} />
+                <RenderControl model={model} name={name} type={type} location={location} func={func} label={label} />
 
                 {type != "location" || isNumber ?
                     <div className="w-32 px-2" id={name}>Required</div> : <></>}
@@ -37,7 +37,7 @@ export default function FormInput({ type, name, label, func, mode, location }) {
 //#region control
 
 
-const RenderControl = ({ name, type, func, label, location }) => {
+const RenderControl = ({ name, type, func, label, location,model }) => {
 
     if (type == 'textarea') {
         return (
@@ -49,12 +49,10 @@ const RenderControl = ({ name, type, func, label, location }) => {
             <Location location={location} />
         )
     } else if (type == "number") {
-        console.log(type)
-
         return (
             <div className="w-full flex-col h-full">
 
-                <Number func={func} name={name} label={label}  />
+                <Number placeholder={model.placeholder} func={func} name={name} label={label}  />
             </div>
         )
 
