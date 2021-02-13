@@ -1,6 +1,4 @@
 import { RequestAPI, APIEndpoint, PushAPI } from '../../models/utils'
-import { setLocalStorage } from 'sauveur_core/utility';
-
 
 const CreateIssue = async (title,message) => {
 

@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import styles from 'sauveur_style'
+import { useEffect, useState,styles } from '../../'
 
 
 export default function FormEdit({ type, name, label, value, func, mode, image, uploaded, location }) {

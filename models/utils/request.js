@@ -1,4 +1,4 @@
-import transact from 'sauveur_core/fetch/fetch';
+import transact from '../../../core/technical/core/fetch/fetch';
 
 
 const RequestAPI = async (url,data) => {

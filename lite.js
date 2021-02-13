@@ -1,4 +1,3 @@
-
 import Store from './store'
 import AddToStore from './store/utils/add'
 import GetStore from './store/utils/get'

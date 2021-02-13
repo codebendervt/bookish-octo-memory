@@ -1,5 +1,5 @@
 import { RequestAPI, APIEndpoint, PushAPI } from '../../models/utils'
-import { setLocalStorage } from 'sauveur_core/utility';
+import { setLocalStorage } from '../../';
 
 
 const BackpackIdentity = async (id) => {

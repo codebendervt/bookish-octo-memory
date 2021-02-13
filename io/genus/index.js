@@ -1,6 +1,5 @@
-import { getLocalStorage } from 'sauveur_core/utility';
 
-
+import { getLocalStorage } from '../../';
 
 const Genus = () => {
     try{

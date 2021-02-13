@@ -1,5 +1,5 @@
-import account from 'components/models/guap/account';
-import { getLocalStorage, setLocalStorage } from 'sauveur_core/utility';
+
+import { getLocalStorage, setLocalStorage } from '../../';
 import { RecieveAPI, APIEndpoint, RequestAPI, RemoveAPI } from '../../../models/utils'
 
 
