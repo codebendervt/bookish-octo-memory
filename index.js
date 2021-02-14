@@ -17,13 +17,14 @@ export {Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteI
 import {GetBanks} from './io'
 import GuapModels from './models/guap'
 import PlugModels from './models/plug'
+import EconModels from './models/econ'
 import CatModel from './models/utils/cat'
 import OldGuardModel from './models/oldguard'
 import ModernForm from './form'
 import Notice from './notice'
 
 
-export {GetBanks,GuapModels,PlugModels,ModernForm,Notice,OldGuardModel,CatModel}
+export {GetBanks,GuapModels,PlugModels,ModernForm,Notice,OldGuardModel,CatModel,EconModels}
 
 
 

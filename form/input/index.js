@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import {styles} from 'components'
 import Location from '../location'
 import Number from '../number'
+import Options from '../options'
 
 export default function FormInput({ type, name, label, func, model, location }) {
 
@@ -56,9 +57,18 @@ const RenderControl = ({ name, type, func, label, location,model }) => {
             </div>
         )
 
+    }else if (type == "options") {
+        return (
+            <div className="w-full flex-col h-full">
+
+                <Options model={model} func={func} name={name}/>
+               
+            </div>
+        )
+
     } else {
         return (
-            <input placeholder={name} className={styles.input} onChange={func} type={type} name={name} required></input>
+            <input placeholder={model.placeholder || name} className={styles.input} onChange={func} type={type} name={name} required></input>
         )
 
     }

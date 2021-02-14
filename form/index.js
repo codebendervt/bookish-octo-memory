@@ -81,6 +81,8 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
                             func={editData}
                             mode={mode}
                             location={location}
+                            index={k}
+                            goto={setState}
                         />
                     )
                 })
@@ -152,10 +154,12 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
             } else {
                 if (e.target.name == 'name') {
                     setItemName({ [e.target.name]: e.target.value })
-                    setData({ [e.target.name]: e.target.value })
+                    // setData({ [e.target.name]: e.target.value })
                 } else {
 
-                    setData({ [e.target.name]: e.target.value })
+                    let _value = Object.assign(_data, { [e.target.name]: e.target.value })
+                    setData(_value)
+                    // setData({ [e.target.name]: e.target.value })
                 }
             }
         } catch (e) {
