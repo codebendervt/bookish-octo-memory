@@ -60,7 +60,7 @@ const InitTransaction = async (payload, brand, id) => {
     }
 
     const createTransaction = {
-        email: `${payload.customer.contact}@${payload.brand}.xyz`,
+        email: `${payload.customer.contact}@${brand}.xyz`,
         amount: total * 100,
         callback_url: `${url}?id=${id}`,
         subaccount: data.code,
@@ -83,7 +83,7 @@ const InitSimpleTransaction = async (payload, brand, id) => {
     }
 
     const createTransaction = {
-        email: `${payload.contact}@${payload.brand}.xyz`,
+        email: `${payload.contact}@${brand}.xyz`,
         amount: payload.amount * 100,
         callback_url: `${url}?id=${id}`,
         subaccount: payload.code,
