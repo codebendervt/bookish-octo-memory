@@ -26,9 +26,10 @@ export default function ModernForm({ type, mode, id, data, dataId = null }) {
             if (mode == "edit") {
                 //console.log("edit mode")
                 setLength(0)
-                console.log("this is the data", data)
+                //console.log("this is the data", data)
                 if (type == "link") {
                     data.data.links.map((i) => {
+                      
                         if (i.id == dataId) {
                             setData(i)
                         }

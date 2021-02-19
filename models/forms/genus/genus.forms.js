@@ -18,10 +18,12 @@ export default function GenusForm({ mode, type, id, data, initData, length, moda
     useEffect(() => {
 
 
-        if (mode == "edit") {
+        if (mode == "edit" ) {
             // console.log("edit mode")
-            // console.log("local data", _data)
-            // console.log("init data", data)
+            //setData(initData)
+             console.log("local data", _data)
+             console.log("init data", initData)
+             setData(initData)
             // setLength(0)
             // data.map((i) => {
             //     if(i.id == dataId){
@@ -36,7 +38,7 @@ export default function GenusForm({ mode, type, id, data, initData, length, moda
         return () => {
 
         }
-    }, [])
+    }, [initData])
 
 
     const renderForm = () => {
