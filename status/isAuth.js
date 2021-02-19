@@ -38,7 +38,7 @@ const NavLinks = ({ version }) => {
 }
 
 
-const isAuth = ({ auth, user, url, message, btn }) => {
+const isAuth = ({ auth, user, url, message, btn,children }) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -84,6 +84,7 @@ const isAuth = ({ auth, user, url, message, btn }) => {
             {
               auth ? "" : <div className="cursor-emoji font-default-accent text-xl" onClick={() => router.back()}>go back</div>
             }
+            {children}
 
           </div>
 
