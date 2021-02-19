@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, getUser, UpdateCloudBackpack } from '../../';
+import { getLocalStorage, setLocalStorage, getUser, UpdateCloudBackpack } from 'components';
 import { RecieveAPI, APIEndpoint, PushAPI, RemoveAPI } from '../../models/utils'
 
 const UpdateCloudPlug = async (id, data) => {
