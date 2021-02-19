@@ -1,6 +1,4 @@
-
-import { useEffect, useState } from 'components'
-import styles from 'sauveur_style'
+import { useEffect, useState,styles } from '../../../'
 
 export default function Location({location}) {
 

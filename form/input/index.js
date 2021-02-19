@@ -1,23 +1,30 @@
 import { useEffect, useState } from 'react'
-import styles from 'sauveur_style'
+import {styles} from 'components'
 import Location from '../location'
+import Number from '../number'
 
-export default function FormInput({ type, name, label, func, mode,location }) {
+export default function FormInput({ type, name, label, func, model, location }) {
+
+    const [isNumber] =useState(type !== 'number')
 
 
 
     return (
 
         <div className={"p-4"}>
-            <h1 className={styles.title}>{label}</h1>
-            <div className={styles.input_border}>
+            {
+                isNumber ? 
+                <h1 className={styles.title}>{label}</h1> :<></>
+            }
+
+            <div className={isNumber ? styles.input_border: ""}>
 
 
 
-                <RenderControl name={name} type={type} location={location} func={func} label={label} />
+                <RenderControl model={model} name={name} type={type} location={location} func={func} label={label} />
 
-                {type != "location" ?  
-                <div className="w-32" id={name}>Required</div> :<></>}
+                {type != "location" || isNumber ?
+                    <div className="w-32 px-2" id={name}>Required</div> : <></>}
 
 
             </div>
@@ -30,17 +37,25 @@ export default function FormInput({ type, name, label, func, mode,location }) {
 //#region control
 
 
-const RenderControl = ({ name, type, func, label,location }) => {
+const RenderControl = ({ name, type, func, label, location,model }) => {
 
     if (type == 'textarea') {
         return (
             <textarea className={styles.input} rows="3" cols="50" name={name} onChange={func} required />
         )
 
-    }else if(type == "location"){
-        return(
+    } else if (type == "location") {
+        return (
             <Location location={location} />
         )
+    } else if (type == "number") {
+        return (
+            <div className="w-full flex-col h-full">
+
+                <Number placeholder={model.placeholder} func={func} name={name} label={label}  />
+            </div>
+        )
+
     } else {
         return (
             <input placeholder={name} className={styles.input} onChange={func} type={type} name={name} required></input>

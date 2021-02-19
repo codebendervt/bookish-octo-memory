@@ -3,7 +3,8 @@ export default {
         {
             name:"quantity",
             label:"Quantity",
-            type:"number"
+            type:"number",
+            placeholder:"0"
         },
    
     ]

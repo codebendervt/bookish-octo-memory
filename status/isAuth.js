@@ -2,6 +2,9 @@ import Link from 'next/link'
 import { useReducer, useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 
+import Toolbar from 'sauveur_design/toolbar';
+
+
 const NavHeader = ({ name, model }) => {
   return (
     <>
@@ -23,16 +26,16 @@ const NavComment = ({ comment }) => {
   )
 }
 
-  const NavLinks = ({version}) => {
-    return (
-      <>
-        <Link href={`/kraft/genus`}>
-          <a className="font-default-accent text-xl mr-4">Kraft</a>
-        </Link>
-      </>
-  
-    )
-  }
+const NavLinks = ({ version }) => {
+  return (
+    <>
+      <Link href={`/kraft/genus`}>
+        <a className="font-default-accent text-xl mr-4">Kraft</a>
+      </Link>
+    </>
+
+  )
+}
 
 
 const isAuth = ({ auth, user, url, message, btn }) => {
@@ -45,7 +48,7 @@ const isAuth = ({ auth, user, url, message, btn }) => {
     // console.log(getUser)
     // console.log(auth)
 
-      console.log("this is the ",user)
+    console.log("this is the ", user)
 
     return () => {
 
@@ -61,7 +64,10 @@ const isAuth = ({ auth, user, url, message, btn }) => {
 
       <div className="w-screen h-auto flex-grow flex flex-row items-end">
 
+
         <div className="w-full py-8 p-4 lg:w-1/3 lg:p-8 h-auto leading-none uppercase animated fadeIn">
+
+
           {
             auth && user ? <NavHeader name={user.name} model={user.model} /> : ""
           }
@@ -70,10 +76,15 @@ const isAuth = ({ auth, user, url, message, btn }) => {
             auth && user ? <NavComment comment={"Welcome Home are you ready to take on the world"} /> : <NavComment comment={message} />
           }
 
-          <div className="flex-row my-2">
+          <div className="flex flex-row my-2">
             {
-              auth && user  ? <NavLinks version={user.ver} /> : (<div onClick={() => router.push(url)} className="font-default-accent text-xl mr-4">{btn}</div>)
+              auth && user ? <NavLinks version={user.ver} /> : (<div onClick={() => router.push(url)} className="cursor-emoji font-default-accent text-xl mr-4">{btn}</div>)
             }
+
+            {
+              auth ? "" : <div className="cursor-emoji font-default-accent text-xl" onClick={() => router.back()}>go back</div>
+            }
+
           </div>
 
 

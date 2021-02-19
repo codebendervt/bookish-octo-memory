@@ -1,5 +1,5 @@
 import account from 'components/models/guap/account';
-import { getLocalStorage, setLocalStorage } from 'sauveur_core/utility';
+import { getLocalStorage, setLocalStorage } from 'components';
 import { RecieveAPI, APIEndpoint, RequestAPI, RemoveAPI } from '../../models/utils'
 
 
@@ -34,7 +34,6 @@ const CreateGuap = async (data, brand) => {
     return result
 }
 
-
 const GetGuap = async (brand) => {
 
     let _data = {id:brand}
@@ -44,12 +43,12 @@ const GetGuap = async (brand) => {
 
 }
 
-const InitTransaction = async(payload,brand,id) =>{
+const InitTransaction = async (payload, brand, id) => {
 
     console.log(payload)
 
-    let _data = {id:brand}
-    const {data}  = await RequestAPI(APIEndpoint.getGuap, _data)
+    let _data = { id: brand }
+    const { data } = await RequestAPI(APIEndpoint.getGuap, _data)
     let total = 0
 
     payload.cart.map((i) => {
@@ -57,32 +56,72 @@ const InitTransaction = async(payload,brand,id) =>{
     })
 
     let custom_fields = {
-        custom_fields :[{display_name:brand}]
+        custom_fields: [{ display_name: brand }]
     }
 
     const createTransaction = {
-        email : `${payload.customer.contact}@${payload.brand}.xyz`,
-        amount :total * 100,
-        callback_url : `${url}?id=${id}`,
-        subaccount : data.code,
+        email: `${payload.customer.contact}@${payload.brand}.xyz`,
+        amount: total * 100,
+        callback_url: `${url}?id=${id}`,
+        subaccount: data.code,
         metadata: JSON.stringify(custom_fields)
     }
 
-    //console.log('curent data',createTransaction)
+    console.log('curent data', createTransaction)
 
-     const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
-     //console.log('response',transaction)
-     return transaction
+    const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
+
+    return transaction
 }
 
-const VerifyTransaction = async(ref) => {
+const InitSimpleTransaction = async (payload, brand, id) => {
 
-    let _data = {referance:ref}
+    console.log(payload)
+
+    let custom_fields = {
+        custom_fields: [{ display_name: brand }]
+    }
+
+    const createTransaction = {
+        email: `${payload.contact}@${payload.brand}.xyz`,
+        amount: payload.amount * 100,
+        callback_url: `${devUrl}?id=${id}`,
+        subaccount: payload.code,
+        metadata: JSON.stringify(custom_fields)
+    }
+
+    console.log('curent data', createTransaction)
+
+    const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
+
+    return transaction
+}
+
+const VerifyTransaction = async (ref) => {
+
+    let _data = { referance: ref }
     //console.log("data to verify",_data)
-    const {data}  = await RequestAPI(APIEndpoint.verifyTransact, _data)
-    
+    const { data } = await RequestAPI(APIEndpoint.verifyTransact, _data)
+
     return data
 
 }
 
+<<<<<<< HEAD
 export { GetBanks, CreateGuap,InitTransaction,VerifyTransaction,GetGuap };
+=======
+const hasAccount = () => {
+
+    try{
+        const result = getLocalStorage('guap')
+        return result
+    }catch{
+
+        const err = false
+        return(err)
+    }
+
+}
+
+export { GetBanks, CreateGuap, InitTransaction, VerifyTransaction,hasAccount,InitSimpleTransaction,GetGuap };
+>>>>>>> fb2bfb8ebe3c03de8d6ecaef5b1ac07de1f23357

@@ -62,7 +62,7 @@ export default function ModernForm({ type, mode, id, data, dataId = null }) {
     return (
         <>
             <Head title="Sauveur Form" />
-            <div className="p-2 text-white">
+            <div className="relative text-white">
                 <Toolbar />
             </div>
 

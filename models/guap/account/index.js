@@ -3,7 +3,8 @@ export default {
         {
             name:"account_number",
             label: "Account Number",
-            type:"number"
+            type:"number",
+            placeholder:"0000000"
         }
     ]
 }

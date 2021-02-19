@@ -142,7 +142,7 @@ export default function GenusForm({ mode, type, id, data, initData, length, moda
             </div>
 
 
-            <div className="w-full h-16 lg:h-24 flex items-end justify-end ">
+            <div className="w-full h-16 lg:h-24 flex items-end justify-end px-4">
                 {
                     state < length ? (<a href={"#" + state} className={styles.form_button} onClick={() => setState(state + 1)}>next</a>) : (<button className={styles.form_button} type="submit">submit</button>)
                 }

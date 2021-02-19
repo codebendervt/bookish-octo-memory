@@ -13,12 +13,14 @@ export default {
         {
             name:"price",
             label:"price",
-            type:"number"
+            type:"number",
+            placeholder:"00.00"
         },
         {
             name:"stock",
             label:"stock",
-            type:"number"
+            type:"number",
+            placeholder:"0"
         }
         // ,{
         //     name:"image",

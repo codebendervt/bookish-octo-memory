@@ -9,13 +9,20 @@ import DeleteStore from './store/utils/clear'
 import GetIdentity from './identity/utils/get'
 import CreateIdentity from './identity/utils/add'
 import SecureIdentity from './identity/utils/secure'
+<<<<<<< HEAD
 import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,GetGuap} from './io'
 
 
 export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,GetGuap}
+=======
+import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,hasAccount,InitSimpleTransaction,UpdateCloudBackpack,GetGuap} from './io'
 
 
-import {GetBanks} from './io'
+export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,hasAccount,InitSimpleTransaction,UpdateCloudBackpack,GetGuap}
+>>>>>>> fb2bfb8ebe3c03de8d6ecaef5b1ac07de1f23357
+
+
+import {GetBanks,getUser,UpdateLocalGenus,getBrand} from './io'
 import GuapModels from './models/guap'
 import PlugModels from './models/plug'
 import OldGuardModel from './models/oldguard'
@@ -23,7 +30,7 @@ import ModernForm from './form'
 import Notice from './notice'
 
 
-export {GetBanks,GuapModels,PlugModels,ModernForm,Notice,OldGuardModel}
+export {GetBanks,GuapModels,PlugModels,ModernForm,Notice,OldGuardModel,getUser,UpdateLocalGenus,getBrand}
 
 
 
@@ -35,13 +42,13 @@ import Image from 'next/image'
 export {Link,useRouter,useEffect,useState,Image}
 
 
-import Choice from './design/choice'
+import {Choice,Section} from './design'
 
-export {Choice}
+export {Choice,Section}
 
 
 import { getLocalStorage, setLocalStorage,$getLocalStorage, $setLocalStorage,$deleteStorage } from '../core/technical/core/utility';
-import styles from 'sauveur_style'
+import styles from '../core/styles'
 import Head from './head'
 
 export {Head,styles,setLocalStorage,getLocalStorage,$setLocalStorage,$getLocalStorage,$deleteStorage}
