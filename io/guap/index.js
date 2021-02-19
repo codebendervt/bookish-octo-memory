@@ -85,7 +85,7 @@ const InitSimpleTransaction = async (payload, brand, id) => {
     const createTransaction = {
         email: `${payload.contact}@${payload.brand}.xyz`,
         amount: payload.amount * 100,
-        callback_url: `${devUrl}?id=${id}`,
+        callback_url: `${url}?id=${id}`,
         subaccount: payload.code,
         metadata: JSON.stringify(custom_fields)
     }
@@ -107,9 +107,6 @@ const VerifyTransaction = async (ref) => {
 
 }
 
-<<<<<<< HEAD
-export { GetBanks, CreateGuap,InitTransaction,VerifyTransaction,GetGuap };
-=======
 const hasAccount = () => {
 
     try{
@@ -124,4 +121,3 @@ const hasAccount = () => {
 }
 
 export { GetBanks, CreateGuap, InitTransaction, VerifyTransaction,hasAccount,InitSimpleTransaction,GetGuap };
->>>>>>> fb2bfb8ebe3c03de8d6ecaef5b1ac07de1f23357
