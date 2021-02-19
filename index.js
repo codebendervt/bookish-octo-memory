@@ -9,10 +9,10 @@ import DeleteStore from './store/utils/clear'
 import GetIdentity from './identity/utils/get'
 import CreateIdentity from './identity/utils/add'
 import SecureIdentity from './identity/utils/secure'
-import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,GetGuap,InitSimpleTransaction} from './io'
+import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount} from './io'
 
 
-export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,GetGuap,InitSimpleTransaction}
+export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount}
 
 
 import {GetBanks,getUser,UpdateLocalGenus,getBrand} from './io'
