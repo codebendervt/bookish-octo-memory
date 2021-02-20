@@ -71,7 +71,7 @@ export default function GuapInvoice({label,func,name,placeholder="00.00"}) {
                 </div>
                 <div className="w-64 h-full relative flex items-end justify-center">
 
-                    <input className="w-64 appearance-none bg-transparent text-center font-default-title text-white" type="text" name={name} placeholder={placeholder} value={amount} onChange={onChange} />
+                    <input className="w-64 appearance-none bg-transparent text-center font-default-title " type="text" name={name} placeholder={placeholder} value={amount} onChange={onChange} />
 
                 </div>
 
