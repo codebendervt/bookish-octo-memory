@@ -8,6 +8,7 @@ import {BackpackIdentity,UpdateLocalBackpack,UpdateCloudBackpack} from './backpa
 
 import {CreateIssue,CommentOnIssue} from './resource';
 import {CreateToken,ReadToken} from './security/token';
+import MenuConfig from './menu'
+import Storage from './storage'
 
-
-export {getUser,isAuth,BackpackIdentity,UpdateLocalBackpack,UpdateCloudBackpack,getPlug,getBrand, UpdateCloudPlug,UpdateLocalPlug,DeletePlug,CreateIssue,CommentOnIssue,GetBanks,CreateGuap,CreateToken,InitTransaction,CreateOrder,VerifyTransaction,ReadToken,GetOrder,UpdateCloudOrder,hasAccount,InitSimpleTransaction,UpdateLocalGenus,GetGuap}
+export {getUser,isAuth,BackpackIdentity,UpdateLocalBackpack,UpdateCloudBackpack,getPlug,getBrand, UpdateCloudPlug,UpdateLocalPlug,DeletePlug,CreateIssue,CommentOnIssue,GetBanks,CreateGuap,CreateToken,InitTransaction,CreateOrder,VerifyTransaction,ReadToken,GetOrder,UpdateCloudOrder,hasAccount,InitSimpleTransaction,UpdateLocalGenus,GetGuap,MenuConfig,Storage}

@@ -209,7 +209,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
 
 
 
-                    <div className={`w-full h-12 sticky inset-x-0 bottom-0 flex p-2 transition duration-500 ease-in-out justify-center lg:justify-start ${theme}`}>
+                    <div className={`w-full h-20 lg:h-12 sticky inset-x-0 bottom-0 flex p-2 transition duration-500 ease-in-out justify-center lg:justify-start ${theme}`}>
                         {
                             modal == "identity" ? <></> :
                             state < length ? (<a href={"#" + state} className={styles.form_button} onClick={() => changeState()}>next</a>) : (
