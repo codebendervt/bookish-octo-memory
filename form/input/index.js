@@ -59,7 +59,7 @@ const RenderControl = ({ name, type, func, label, location,model }) => {
 
     }else if (type == "options") {
         return (
-            <div className="w-full flex-col h-full">
+            <div className="w-full flex flex-col h-full">
 
                 <Options model={model} func={func} name={name}/>
                
