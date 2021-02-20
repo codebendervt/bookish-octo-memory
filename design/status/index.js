@@ -3,7 +3,7 @@ import Head from 'components/head'
 import { useRouter } from 'next/router'
 
 
-export default function Status({ text, state, title,btnErr,btnText }) {
+export default function Status({ text, state, title,btnErr="Try Again",btnText="Go Back" }) {
     const router = useRouter()
 
     const ErrorButtons = () => {
