@@ -9,7 +9,7 @@ import { $lg } from 'sauveur_core/utility';
 import { CreateIssue } from 'components/io';
 import Toolbar from 'sauveur_design/toolbar';
 
-export default function ModernForm({ type, mode, id, data, dataId = null }) {
+export default function ModernForm({ type, mode, id, data, dataId = null,cat }) {
     // _data is the edited data
     //data is the original unformated data 
     const router = useRouter();
@@ -70,7 +70,7 @@ export default function ModernForm({ type, mode, id, data, dataId = null }) {
             <form action="/io/status/submit" method="GET" className="w-full h-full flex flex-col text-white">
 
                 {
-                    _data ? <FormModel type={type} modal={modal} length={length} data={data} _data={_data} id={id} mode={mode} dataId={dataId} /> : ""
+                    _data ? <FormModel type={type} modal={modal} length={length} data={data} _data={_data} id={id} mode={mode} dataId={dataId} cat={cat} /> : ""
                 }
 
 

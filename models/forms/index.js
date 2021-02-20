@@ -11,7 +11,7 @@ import PlugForm from './plug/plug.form';
         case "brand":
             return  <GenusForm type={form.type} modal={form.modal} length={form.length} data={form.data} initData={form._data} id={form.id} mode={form.mode}  dataId={form.dataId} /> 
         case "product":
-            return <PlugForm type={form.type} modal={form.modal} length={form.length} data={form.data} initData={form._data} id={form.id} mode={form.mode} dataId={form.dataId}/>
+            return <PlugForm type={form.type} modal={form.modal} length={form.length} data={form.data} initData={form._data} id={form.id} mode={form.mode} dataId={form.dataId} cat={form.cat}/>
         default:
             return <></>;
     }

@@ -22,7 +22,7 @@ export default function ProductView({ data }) {
         // create a check to see if in dev or prod to send request
         if (data && _brand) {
             if (data.mode == "create") {
-                console.log(data)
+                //console.log(data.cat)
                 ProductCreate()
             } else {
 
@@ -67,6 +67,7 @@ export default function ProductView({ data }) {
             // console.log("paystack response", response)
             // _body.id = response.data.id;
 
+            _body.cat = data.cat
             let _plug = {
                 data: _body
             }
@@ -82,7 +83,7 @@ export default function ProductView({ data }) {
                 if (plugResponse.msg.name == "BadRequest") {
 
                 }
-
+                setStateText("Error Creating Product")
             } else {
 
                 let _data = {

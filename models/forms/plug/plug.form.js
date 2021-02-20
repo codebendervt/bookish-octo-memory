@@ -13,7 +13,7 @@ import IsAuth from 'components/status/isAuth'
 import EditPlug from './edit';
 
 
-export default function PlugForm({ mode, type, id, data, initData, length, modal, dataId }) {
+export default function PlugForm({ mode, type, id, data, initData, length, modal, dataId,cat }) {
     const [_data, setData] = useState(initData)
     const [state, setState] = useState(0);
     //const [modal] = useState(Modals(type).data);
@@ -265,7 +265,7 @@ export default function PlugForm({ mode, type, id, data, initData, length, modal
 
 
 
-            <HiddenField type={type} id={id} dataId={_dataId} mode={mode} data={data} />
+            <HiddenField type={type} id={id} dataId={_dataId} mode={mode} data={data} cat={cat} />
 
 
 
