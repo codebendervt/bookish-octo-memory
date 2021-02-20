@@ -26,9 +26,10 @@ export default function ModernForm({ type, mode, id, data, dataId = null }) {
             if (mode == "edit") {
                 //console.log("edit mode")
                 setLength(0)
-                console.log("this is the data", data)
+                //console.log("this is the data", data)
                 if (type == "link") {
                     data.data.links.map((i) => {
+                      
                         if (i.id == dataId) {
                             setData(i)
                         }
@@ -62,7 +63,7 @@ export default function ModernForm({ type, mode, id, data, dataId = null }) {
     return (
         <>
             <Head title="Sauveur Form" />
-            <div className="p-2 text-white">
+            <div className="relative text-white">
                 <Toolbar />
             </div>
 

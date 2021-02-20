@@ -4,7 +4,6 @@ export default function HiddenFields({ type, dataId = false, mode, data, custom 
     return (
 
         <>
-
             {
                 type ? <input hidden type="text" defaultValue={type} name="model" hidden ></input> : <></>
             }
@@ -22,16 +21,10 @@ export default function HiddenFields({ type, dataId = false, mode, data, custom 
                 mode ?
                     <input hidden type="text" defaultValue={mode} name="mode" hidden ></input> : <></>
             }
-
-{
+             {
                 data ?
                 <input hidden type="text" defaultValue={JSON.stringify(data)} name="data" hidden ></input>: <></>
             }
-
-
-
-
-   
 
 
         </>

@@ -3,23 +3,33 @@ import Head from 'components/head'
 import { useRouter } from 'next/router'
 
 
-export default function Status({ text, state, title }) {
+export default function Status({ text, state, title,btnErr="Try Again",btnText="Go Back" }) {
     const router = useRouter()
+
+    const ErrorButtons = () => {
+
+        return (
+            <div className="w-full flex justify-center animated fadeIn">
+
+                <div className="m-4 text-xl font-default-accent cursor-emoji" onClick={() => router.push("/dashboard")} >{btnText}</div>  <a href="https://api.whatsapp.com/send?text=Error%20Brand&phone=15551234567" className="m-4 text-xl font-default-accent cursor-emoji">{btnErr}</a>
+
+            </div>
+        )
+    }
 
     return (
         <div className={"w-full h-screen flex justify-center items-center"}>
             <Head title={title} />
 
-            <h1 className={"text-3xl md:text-5xl font-default-title text-white capitalize text-center flex-col " + (state ? "" : " animate-pulse")}>
-                <div>
+            <div className={"text-3xl md:text-5xl font-default-title text-white capitalize text-center flex-col max-w-lg " + (state ? "" : " animate-pulse")}>
+                <h1>
                     {text}
-                </div>
+                </h1>
 
-                {
-                    (state ? <div className="text-xl font-default-accent cursor-emoji" onClick={() => router.push("/dashboard")} >Return</div> : "")
-                }
+                <ErrorButtons/>
 
-            </h1>
+
+            </div>
 
         </div>
     )

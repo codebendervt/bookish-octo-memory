@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage, getUser, UpdateCloudBackpack } from '../../';
+import { getLocalStorage, setLocalStorage, getUser, UpdateCloudBackpack } from 'components';
 import { RecieveAPI, APIEndpoint, PushAPI, RemoveAPI } from '../../models/utils'
 
 const UpdateCloudPlug = async (id, data) => {
@@ -99,6 +99,10 @@ const PlugProduct = async (id) => {
     return await RecieveAPI(APIEndpoint.plug, data)
 }
 
+const GetCloudPlug = (brand) => {
+
+}
+
 const getPlug = () => {
     try {
         return getLocalStorage('plug')
@@ -108,4 +112,4 @@ const getPlug = () => {
 
 }
 
-export { UpdateCloudPlug, getPlug, UpdateLocalPlug,DeletePlug }
+export { UpdateCloudPlug, getPlug, UpdateLocalPlug,DeletePlug,GetCloudPlug }

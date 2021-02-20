@@ -34,6 +34,15 @@ const CreateGuap = async (data, brand) => {
     return result
 }
 
+const GetGuap = async (brand) => {
+
+    let _data = {id:brand}
+    const {data}  = await RequestAPI(APIEndpoint.getGuap, _data)
+
+    return data
+
+}
+
 const InitTransaction = async (payload, brand, id) => {
 
     console.log(payload)
@@ -51,9 +60,9 @@ const InitTransaction = async (payload, brand, id) => {
     }
 
     const createTransaction = {
-        email: `${payload.customer.contact}@${payload.brand}.xyz`,
+        email: `${payload.customer.contact}@${brand}.xyz`,
         amount: total * 100,
-        callback_url: `${devUrl}?id=${id}`,
+        callback_url: `${url}?id=${id}`,
         subaccount: data.code,
         metadata: JSON.stringify(custom_fields)
     }
@@ -74,9 +83,9 @@ const InitSimpleTransaction = async (payload, brand, id) => {
     }
 
     const createTransaction = {
-        email: `${payload.contact}@${payload.brand}.xyz`,
+        email: `${payload.contact}@${brand}.xyz`,
         amount: payload.amount * 100,
-        callback_url: `${devUrl}?id=${id}`,
+        callback_url: `${url}?id=${id}`,
         subaccount: payload.code,
         metadata: JSON.stringify(custom_fields)
     }
@@ -111,4 +120,4 @@ const hasAccount = () => {
 
 }
 
-export { GetBanks, CreateGuap, InitTransaction, VerifyTransaction,hasAccount,InitSimpleTransaction };
+export { GetBanks, CreateGuap, InitTransaction, VerifyTransaction,hasAccount,InitSimpleTransaction,GetGuap };

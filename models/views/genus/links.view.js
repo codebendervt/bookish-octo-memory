@@ -5,13 +5,15 @@ import Modals from 'components/models'
 import { setLocalStorage } from 'sauveur_core/utility';
 import getData from 'sauveur_core/fetch/fetch'
 import { useRouter } from 'next/router'
-import models from 'components/models';
+import { CreateIssue, CommentOnIssue } from 'components/io';
+
 
 export default function LinkView({ data, id }) {
     const router = useRouter()
     const [stateText, setStateText] = useState('One Moment Please')
     const [state, setState] = useState(false)
-    //const [body, setBody] = useState(null)
+    const [btnText, setbtnText] = useState('')
+    const [btnErr, setbtnErr] = useState('')
     const [res, setRes] = useState(false)
 
     useEffect(() => {
@@ -35,6 +37,8 @@ export default function LinkView({ data, id }) {
 
     const brandUpdate = async (links) => {
 
+        try{
+            
         let link = {
             id: links.length.toString(),
             name: data.name,
@@ -75,6 +79,7 @@ export default function LinkView({ data, id }) {
 
             }
 
+            setStateText("Unable to update Link")
         } else {
             let _data = {
                 id: response.ref["@ref"].id,
@@ -83,9 +88,32 @@ export default function LinkView({ data, id }) {
             console.log("created brand")
             setLocalStorage('genus', _data)
             setStateText("Link Updated")
+            setbtnText('Go Home')
             setState(true)
         }
 
+        }catch(e){
+            
+            setStateText("Unable to update link")
+            CreateIssue("Unable to update link",e.message)
+            setbtnText("Retry")
+            setbtnErr("Contact Developer")
+            //console.log("unable to update link",e.message)
+        }
+
+
+    }
+
+    
+    const ErrorButtons = () => {
+
+        return (
+            <div className="w-full flex justify-center">
+
+                <div className="m-4 text-xl font-default-accent cursor-emoji" onClick={() => router.push("/kraft/genus")} >{btnText}</div>  <a href="https://api.whatsapp.com/send?text=Error%20Brand&phone=15551234567" className="m-4 text-xl font-default-accent cursor-emoji">{btnErr}</a>
+
+            </div>
+        )
     }
 
 
@@ -99,9 +127,7 @@ export default function LinkView({ data, id }) {
                 </div>
 
                 {
-                    (state ?
-                        <div className="text-xl font-default-accent cursor-emoji" onClick={() => router.push("/dashboard")} >Return</div>
-                        : "")
+                    (state ? <div className="text-xl font-default-accent cursor-emoji" onClick={() => router.push("/kraft/genus")} >{btnText}</div> : <ErrorButtons/>)
                 }
 
             </h1>

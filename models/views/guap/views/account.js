@@ -3,23 +3,26 @@ import Modals from 'components/models'
 import { setLocalStorage } from 'sauveur_core/utility';
 import models from 'components/models';
 import Status from 'components/design/status'
-import { UpdateCloudBackpack, CreateIssue, CommentOnIssue, CreateGuap} from 'components/io';
+import { UpdateCloudBackpack, CreateIssue, CommentOnIssue, CreateGuap } from 'components/io';
 
-export default function AccountView({data}) {
+export default function AccountView({ data }) {
 
     const [stateText, setStateText] = useState('One Moment Please')
     const [state, setState] = useState(false)
 
+    const [btnText, setbtnText] = useState('')
+    const [btnErr, setbtnErr] = useState('')
 
     useEffect(() => {
 
-            if (data.mode == "create") {
-                ItemCreate()
-            } else {
+        if (data.mode == "create") {
+            console.log(data)
+            ItemCreate()
+        } else {
 
-                // let builtIn = JSON.parse(data.data);
-                //ProductUpdate()
-            }
+            // let builtIn = JSON.parse(data.data);
+            //ProductUpdate()
+        }
 
         return () => {
             cleanup
@@ -34,29 +37,34 @@ export default function AccountView({data}) {
 
 
         try {
-           
+
             let _data = {
-                business_name : data.brand.data.name,
+                business_name: data.brand.data.name,
                 settlement_bank: data.code,
-                account_number : data.account_number,
-                percentage_charge : 1.0
+                account_number: data.account_number,
+                percentage_charge: 1.0
 
             }
 
             //console.log(_data)
 
-            const response = await CreateGuap(_data,data.brand.data.name)
+            const response = await CreateGuap(_data, data.brand.data.name)
             //console.log('the repsonse is ', response)
 
             //convert into a faundadb response handler
             if (response.msg) {
                 if (response.msg.name == "BadRequest") {
 
+
                 }
+
+                
+                setButtonErr()
+                setStateText("Error Creating Account You Have One Already")
 
             } else {
 
-                 _data = {
+                _data = {
                     id: response.ref["@ref"].id,
                     data: response.data
                 }
@@ -94,6 +102,8 @@ export default function AccountView({data}) {
 
             console.log("updated product")
             setStateText("Product Updated")
+            setbtnText("Go Home")
+           
             setState(true)
         } catch (e) {
             console.log(e)
@@ -104,16 +114,26 @@ export default function AccountView({data}) {
     }
 
 
+    const setButtonErr = () => {
+
+        setbtnText("Retry")
+        setbtnErr("Contact Developer")
+        setState(true)
+        
+    }
+
     const ItemInit = async (_data) => {
         try {
 
             setLocalStorage('guap', _data)
             console.log("created account")
+            setbtnText("Go Home")
             setStateText("Account Created")
             setState(true)
         } catch (e) {
             console.log(e)
             CommentOnIssue(21, e.message)
+            setButtonErr()
             setStateText("Error Creating Account")
 
         }
@@ -139,8 +159,10 @@ export default function AccountView({data}) {
 
     return (
 
-        <Status url="/toolbox/plug/products" state={state} text={stateText} title="Product Update" />
-
+        <>
+            <Status url="/toolbox/plug/products" state={state} text={stateText} title="Account Create"
+            btnErr={btnErr} btnText={btnText} />
+        </>
     )
 }
 

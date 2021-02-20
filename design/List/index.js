@@ -14,7 +14,7 @@ export default function Li({ q, name, id, func,brand }) {
 
 
         <div className={"flex px-2 my-4 lg:px-12 p-2 h-20"  + animation}>
-            <div className="w-96 h-20 bg-gray-700 shadow flex p-2 rounded items-center">
+            <div className="lg:w-96 h-20 bg-gray-700 shadow flex p-2 rounded items-center">
                 <div className="flex rounded w-16 h-full bg-gray-600 text-3xl items-center justify-center font-default-title">
                     {q}
                 </div>

@@ -6,6 +6,7 @@ export default {
     verifyTransact : "/api/financial/paystack/transaction/verify",
     backpack : "/api/storage/backpack",
     bacpackIdentity: "/api/storage/backpack/identity",
+    genusIdentity: "/api/storage/genus/identity",
     plug : "/api/storage/theplug",
     plugProduct : "/api/storage/theplug/identity",
     guap : "/api/storage/guap",
