@@ -197,7 +197,10 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
 
                 <div className={`flex flex-col w-full h-full lg:w-screen lg:h-screen realtive `}>
 
-                    <div onClick={() => formBack()} className="absolute font-default-accent w-full px-4 p-2 flex justify-end cursor-emoji z-20">back</div>
+                    <div  className="absolute  w-full px-4 p-2 flex justify-end z-20">
+                        <div className="font-default-accent  cursor-emoji " onClick={() => formBack()}>go back</div>
+                        
+                        </div>
                     <div className="flex-grow w-full overflow-y-scroll hidescroll p-2 py-8 lg:py-0">
                         <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "w-full flex flex-wrap lg:max-w-lg")}>
 

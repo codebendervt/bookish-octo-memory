@@ -99,6 +99,10 @@ const PlugProduct = async (id) => {
     return await RecieveAPI(APIEndpoint.plug, data)
 }
 
+const GetCloudPlug = (brand) => {
+
+}
+
 const getPlug = () => {
     try {
         return getLocalStorage('plug')
@@ -108,4 +112,4 @@ const getPlug = () => {
 
 }
 
-export { UpdateCloudPlug, getPlug, UpdateLocalPlug,DeletePlug }
+export { UpdateCloudPlug, getPlug, UpdateLocalPlug,DeletePlug,GetCloudPlug }
