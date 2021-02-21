@@ -44,7 +44,7 @@ export default function ModernForm({ type, mode, id, data, dataId = null,cat }) 
 
             } else {
                 setData({})
-                console.log("this is the data", data)
+                //console.log("this is the data", data)
             }
         } catch (e) {
             CreateIssue("Modern Form", e.message)

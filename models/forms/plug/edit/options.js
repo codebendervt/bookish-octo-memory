@@ -8,7 +8,7 @@ export default function PlugOptions({ id, data }) {
 
         //console.log(router.query)
         //console.log(id)
-        console.log(data)
+        console.log("current data",data)
         return () => {
 
         }
@@ -18,9 +18,24 @@ export default function PlugOptions({ id, data }) {
     return (
 
         <>
-            <Link href={`/toolbox/plug/options/create?id=${id}`}>
-                <a>{data ? "Edit":"Add"} options</a>
-            </Link>
+
+            <div className="w-full h-full flex items-center justify-center absolute">
+                <Link href={`/toolbox/plug/options/${data ? "edit" : "create"}?id=${id}`}>
+                    <a className="w-full h-full">{data ? " " : "Add options"} </a>
+                </Link>
+            </div>
+
+            <div className="w-full h-full flex p-2 justify-center">
+                {data.map((i,k) => {
+                    if(k < 3){
+                        return(
+                            <div className="m-1 p-2 w-1/3 text-center bg-gray-600 text-xl rounded">{i.name}</div>
+                        )
+                    }
+                 
+                })}
+            </div>
+
 
         </>
     )

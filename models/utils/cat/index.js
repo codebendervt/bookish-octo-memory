@@ -4,6 +4,12 @@ export default {
             name:"name",
             label: "Category Name",
             type:"text"
+        },
+        {
+            name: "type",
+            label: "Plug Type",
+            type: "options",
+            options: ["Product", "Service"]
         }
     ]
 }

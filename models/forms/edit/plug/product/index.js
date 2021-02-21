@@ -8,7 +8,8 @@ const cleanProduct = (data) => {
         desc:data.description,
         price: price,
         stock: data.quantity,
-        image: data.image
+        image: data.image,
+        variant:data.variant
     }
     )
 

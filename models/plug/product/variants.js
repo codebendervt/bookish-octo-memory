@@ -5,7 +5,12 @@ const variants = [{
 },{
     name:"cost",
     type:"number",
-    label:"Additional Cosr"
+    label:"Additional Cost"
+},{
+    name:"type",
+    label: "Variant Type",
+    type: "options",
+    options: ["default"]
 }]
 
 

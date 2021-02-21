@@ -10,7 +10,7 @@ export default function EditPlug({ type, name, label, value, func, mode, image, 
 
     useEffect(() => {
 
-        console.log(model)
+        //console.log(value)
         document.getElementById('image').addEventListener('click', () => {
             setMsg("Uploading image")
             setAnimation("animate-pulse")
@@ -46,7 +46,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
         return (
             <div className="w-full h-full flex items-center justify-center">
 
-                <Options id={model} />
+                <Options data={value} id={model} />
             </div>
         )
     } else if (type == "file") {

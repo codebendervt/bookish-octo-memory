@@ -36,7 +36,7 @@ export default function PlugForm({ mode, type, id, data, initData, length, modal
 
 
         } catch {
-            console.log('there is no brand')
+            //console.log('there is no brand')
             modal = Modals("brand").data
             setIsBrand(false)
         }
@@ -48,8 +48,8 @@ export default function PlugForm({ mode, type, id, data, initData, length, modal
         if (mode == "edit") {
             setProductName({name:initData['name']})
         }
-        console.log("this is the brand", brand)
-        console.log("this is the data", _data)
+        // console.log("this is the brand", brand)
+        // console.log("this is the data", _data)
 
 
         return () => {
@@ -155,7 +155,7 @@ export default function PlugForm({ mode, type, id, data, initData, length, modal
         let file = e.target.files[0];
         let ext = file.name.split(".")[1];
         let result = await uploadFileToBlob(file, `${productName.name}-${brand.name}.${ext}`);
-        console.log("file upload ",result)
+        // console.log("file upload ",result)
         setIsUpload(result);
 
     }
@@ -163,7 +163,7 @@ export default function PlugForm({ mode, type, id, data, initData, length, modal
     const createData = (e) => {
         try {
             if (e.target.type == "file") {
-                console.log('uploading file')
+                // console.log('uploading file')
                 fileUpload(e)
 
             } else {
