@@ -11,10 +11,10 @@ import GetIdentity from './identity/utils/get'
 import CreateIdentity from './identity/utils/add'
 import SecureIdentity from './identity/utils/secure'
 
-import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage} from './io'
+import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage,PlugProduct,UpdateCloudPlug} from './io'
 
 
-export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage}
+export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage,UpdateCloudPlug,PlugProduct}
 
 
 import {GetBanks,getUser,UpdateLocalGenus,getBrand} from './io'

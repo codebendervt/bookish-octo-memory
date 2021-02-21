@@ -1,16 +1,19 @@
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'components'
+import Options from './options'
 import styles from 'sauveur_style'
 
 
-export default function EditPlug({ type, name, label, value, func, mode, image, uploaded }) {
+export default function EditPlug({ type, name, label, value, func, mode, image, uploaded, model }) {
 
-    const [msg, setMsg ] = useState('Upload product image')
-    const [animation, setAnimation ] = useState('')
+    const [msg, setMsg] = useState('Upload product image')
+    const [animation, setAnimation] = useState('')
 
     useEffect(() => {
+
+        console.log(model)
         document.getElementById('image').addEventListener('click', () => {
-          setMsg("Uploading image")
-          setAnimation("animate-pulse")
+            setMsg("Uploading image")
+            setAnimation("animate-pulse")
         })
         return () => {
 
@@ -25,7 +28,7 @@ export default function EditPlug({ type, name, label, value, func, mode, image, 
 
 
 
-                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} />
+                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} model={model} />
 
 
             </div>
@@ -37,16 +40,21 @@ export default function EditPlug({ type, name, label, value, func, mode, image, 
 //#region control
 
 
-const RenderControl = ({ name, value, type, func, label, image, uploaded,msg,animation }) => {
+const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation, model }) => {
 
     if (type == "options") {
-        return (<></>)
+        return (
+            <div className="w-full h-full flex items-center justify-center">
+
+                <Options id={model} />
+            </div>
+        )
     } else if (type == "file") {
         console.log(uploaded)
         return (<>
 
             <input className="opacity-0 w-full h-full absolute cursor-emoji" name={name} id="fileInput" type="file" onChange={func} />
-            {image == null ? (uploaded ? <Notice text="Image is uploaded" /> : <Notice text={msg}  animation={animation} />) : <img className="h-72 w-full" src={image} />}
+            {image == null ? (uploaded ? <Notice text="Image is uploaded" /> : <Notice text={msg} animation={animation} />) : <img className="h-72 w-full" src={image} />}
 
         </>)
     } else if (name == "desc") {
@@ -67,7 +75,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded,msg,ani
 const Notice = ({ text, animation }) => {
     return (
 
-        <div className={"text-lg font-default-accent  cursor-emoji flex items-center h-full " + animation }>
+        <div className={"text-lg font-default-accent  cursor-emoji flex items-center h-full " + animation}>
             <p>{text}</p>
         </div>
 

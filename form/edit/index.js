@@ -1,13 +1,13 @@
 import { useEffect, useState, styles, Link } from '../../'
 
 
-export default function FormEdit({ type, name, label, value, func, index, image, uploaded, location, goto }) {
+export default function FormEdit({ type, name, label, value, func, index, image, uploaded, location, goto, model }) {
 
     const [msg, setMsg] = useState('Upload product image')
     const [animation, setAnimation] = useState('')
 
     useEffect(() => {
-        console.log(value)
+        //console.log(value)
 
         return () => {
 
@@ -28,7 +28,7 @@ export default function FormEdit({ type, name, label, value, func, index, image,
         <div id={name} className={`w-${colByType(type)} h-${heightByType(type)} p-2`}>
             <div className=" h-full bg-gray-800  rounded items-center flex relative flex-col items-center text-white">
 
-                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} location={location} index={index} goto={goto} />
+                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} location={location} index={index} goto={goto} model={model} />
             </div>
 
         </div>
@@ -40,7 +40,7 @@ export default function FormEdit({ type, name, label, value, func, index, image,
 //#region control
 
 
-const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation, location, index, goto }) => {
+const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation, location, index, goto, model }) => {
 
     if (type == "file") {
         addFileListener()
@@ -75,6 +75,41 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
 
                 <input hidden type="text" defaultValue={value} name={name} hidden ></input>
             </>
+
+        )
+    } else if (type == "list") {
+        return (
+
+            <div onClick={() => goto(index)} className="w-full h-full flex p-2 items-center cursor-emoji">
+                {
+                    value.map((i, k) => {
+                        return (
+                            <div key={k} className=" h-12 bg-gray-700 rounded mx-2 flex justify-start flex-col px-2 relative ">
+                                {
+                                    model.data.map((v) => {
+                                        return (
+                                          <div>
+                                                {
+                                                    i[v.name]
+                                                }
+                                            </div>
+                                           
+
+                                        )
+                                    })
+                                }
+                            </div>
+                        )
+
+                    }
+                    )
+                }
+
+
+
+                <input hidden type="text" defaultValue={JSON.stringify(value)} name={name} hidden ></input>
+
+            </div>
 
         )
     } else {

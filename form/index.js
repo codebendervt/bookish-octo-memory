@@ -83,6 +83,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
                             location={location}
                             index={k}
                             goto={setState}
+                            model={i}
                         />
                     )
                 })

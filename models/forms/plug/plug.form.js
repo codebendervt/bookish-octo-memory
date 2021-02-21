@@ -87,7 +87,7 @@ export default function PlugForm({ mode, type, id, data, initData, length, modal
 
 
                     return (
-                        <EditPlug key={i.name + k} type={i.type} name={i.name} value={thedata[i.name]} mode={mode} func={editData} label={i.label} image={productImage} uploaded={isUpload} />
+                        <EditPlug key={i.name + k} type={i.type} name={i.name} value={thedata[i.name]} mode={mode} func={editData} label={i.label} image={productImage} uploaded={isUpload} model={dataId} />
                     )
                 })
         )

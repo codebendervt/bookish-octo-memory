@@ -3,29 +3,35 @@ import { RecieveAPI, APIEndpoint, PushAPI, RemoveAPI } from '../../models/utils'
 
 const UpdateCloudPlug = async (id, data) => {
 
-    let _data = {
-        id: id,
-        data: {
-            data: data
+    try{
+        let _data = {
+            id: id,
+            data: {
+                data: data
+            }
         }
+    
+        const localPlug = getPlug();
+    
+        //console.log("data to update on plug", _data)
+        let response = await PushAPI(APIEndpoint.plug, _data)
+    
+        //console.log("response to update", response)
+    
+        localPlug.products.map((i) => {
+            if (i.id == id) {
+                i.data = response.data
+            }
+            setLocalStorage('plug', localPlug)
+        })
+    
+    
+        return localPlug;
+    }catch{
+        return false
     }
 
-    const localPlug = getPlug();
-
-    console.log("data to update on plug", _data)
-    let response = await PushAPI(APIEndpoint.plug, _data)
-
-    console.log("response to update", response)
-
-    localPlug.products.map((i) => {
-        if (i.id == id) {
-            i.data = response.data
-        }
-        setLocalStorage('plug', localPlug)
-    })
-
-
-    return localPlug;
+  
 }
 
 const DeletePlug = async (id) => {
@@ -112,4 +118,4 @@ const getPlug = () => {
 
 }
 
-export { UpdateCloudPlug, getPlug, UpdateLocalPlug,DeletePlug,GetCloudPlug }
+export { UpdateCloudPlug, getPlug, UpdateLocalPlug,DeletePlug,GetCloudPlug,PlugProduct }

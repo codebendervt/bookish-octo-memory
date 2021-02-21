@@ -3,10 +3,12 @@ import {styles} from 'components'
 import Location from '../location'
 import Number from '../number'
 import Options from '../options'
+import FormList from '../list'
 
 export default function FormInput({ type, name, label, func, model, location }) {
 
     const [isNumber] =useState(type !== 'number')
+    const [isList] = useState(type !== 'list')
 
 
 
@@ -18,13 +20,13 @@ export default function FormInput({ type, name, label, func, model, location }) 
                 <h1 className={styles.title}>{label}</h1> :<></>
             }
 
-            <div className={isNumber ? styles.input_border: ""}>
+            <div className={isNumber && isList ? styles.input_border: ""}>
 
 
 
                 <RenderControl model={model} name={name} type={type} location={location} func={func} label={label} />
 
-                {type != "location" || isNumber ?
+                {type != "location" && isNumber && isList ?
                     <div className="w-32 px-2" id={name}>Required</div> : <></>}
 
 
@@ -66,7 +68,16 @@ const RenderControl = ({ name, type, func, label, location,model }) => {
             </div>
         )
 
-    } else {
+    } else if (type == "list") {
+        return (
+            <div className="w-full flex flex-col h-full">
+
+               <FormList model={model} func={func} name={name}/>
+               
+            </div>
+        )
+
+    }else {
         return (
             <input placeholder={model.placeholder || name} className={styles.input} onChange={func} type={type} name={name} required></input>
         )
