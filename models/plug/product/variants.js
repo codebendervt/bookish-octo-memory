@@ -6,12 +6,8 @@ const variants = [{
     name:"cost",
     type:"number",
     label:"Additional Cost"
-},{
-    name:"type",
-    label: "Variant Type",
-    type: "options",
-    options: ["default"]
-}]
+}
+]
 
 
 
@@ -26,8 +22,12 @@ export default {
             label:"Add Variants",
             type:"list",
             data: variants
-        },
-   
+        },{
+            name:"type",
+            label: "Variant Type",
+            type: "options",
+            options: ["default"]
+        }
     ]
 }
 

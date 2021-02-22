@@ -50,7 +50,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
             </div>
         )
     } else if (type == "file") {
-        console.log(uploaded)
+        //console.log(uploaded)
         return (<>
 
             <input className="opacity-0 w-full h-full absolute cursor-emoji" name={name} id="fileInput" type="file" onChange={func} />

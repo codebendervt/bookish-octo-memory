@@ -30,6 +30,7 @@ export default function PlugForm({ mode, type, id, data, initData, length, modal
     useEffect(() => {
 
 
+        //console.log(EditModal)
         setUser(getUser().data)
         try {
             setBrand(getBrand().data)

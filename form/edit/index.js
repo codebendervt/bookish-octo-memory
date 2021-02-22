@@ -80,15 +80,15 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
     } else if (type == "list") {
         return (
 
-            <div onClick={() => goto(index)} className="w-full h-full flex p-2 items-center cursor-emoji">
+            <div onClick={() => goto(index)} className="w-full h-full flex items-center cursor-emoji relative">
                 {
-                    value.map((i, k) => {
+                    value ? value.map((i, k) => {
                         return (
-                            <div key={k} className=" h-12 bg-gray-700 rounded mx-2 flex justify-start flex-col px-2 relative ">
+                            <div key={k} className=" w-1/3 h-full p-2 flex flex-col relative ">
                                 {
                                     model.data.map((v) => {
                                         return (
-                                          <div>
+                                          <div className="  bg-gray-700 w-full h-full">
                                                 {
                                                     i[v.name]
                                                 }
@@ -102,7 +102,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
                         )
 
                     }
-                    )
+                    ) : ""
                 }
 
 

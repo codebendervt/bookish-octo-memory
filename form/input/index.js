@@ -9,6 +9,7 @@ export default function FormInput({ type, name, label, func, model, location }) 
 
     const [isNumber] =useState(type !== 'number')
     const [isList] = useState(type !== 'list')
+    const [isOptions] = useState(type !== 'options')
 
 
 
@@ -20,13 +21,13 @@ export default function FormInput({ type, name, label, func, model, location }) 
                 <h1 className={styles.title}>{label}</h1> :<></>
             }
 
-            <div className={isNumber && isList ? styles.input_border: ""}>
+            <div className={isNumber && isList && isOptions ? styles.input_border: ""}>
 
 
 
                 <RenderControl model={model} name={name} type={type} location={location} func={func} label={label} />
 
-                {type != "location" && isNumber && isList ?
+                {type != "location" && isNumber && isList && isOptions ?
                     <div className="w-32 px-2" id={name}>Required</div> : <></>}
 
 
@@ -61,7 +62,7 @@ const RenderControl = ({ name, type, func, label, location,model }) => {
 
     }else if (type == "options") {
         return (
-            <div className="w-full flex flex-col h-full">
+            <div className="max-w-md flex flex-col h-full">
 
                 <Options model={model} func={func} name={name}/>
                

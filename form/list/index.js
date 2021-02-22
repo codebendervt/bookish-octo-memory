@@ -9,7 +9,7 @@ export default function FormList({ func, name, model }) {
 
     useEffect(() => {
 
-       // console.log(model)
+        // console.log(model)
 
         return () => {
             cleanup
@@ -17,10 +17,21 @@ export default function FormList({ func, name, model }) {
     }, [])
 
 
+    useEffect(() => {
+
+         console.log("item set")
+        updateMainList()
+
+        return () => {
+            cleanup
+        }
+    }, [item])
+
+
 
 
     const cleanup = () => {
-        
+
         // location(value)
         // console.log("location figured", value)
     }
@@ -64,10 +75,10 @@ export default function FormList({ func, name, model }) {
         )
     }
 
-    const RenderList = ({data}) => {
+    const RenderList = ({ data }) => {
         if (data) {
             return (
-                data.map((i,k) =>
+                data.map((i, k) =>
                     <div className="w-full flex" key={k}>
                         <RenderItem i={i} />
                         <div className="font-default-accent p-4" onClick={() => deleteItem(k)}>delete</div>
@@ -83,10 +94,10 @@ export default function FormList({ func, name, model }) {
 
     const RenderItem = ({ i }) => {
         return (
-            model.data.map((v) => {
+            model.data.map((v,k) => {
                 return (
                     <>
-                        <div className="p-4 font-default-">{i[v.name]}</div>
+                        <div key={k} className="p-4 font-default-">{i[v.name]}</div>
 
                     </>
                 )
@@ -105,6 +116,7 @@ export default function FormList({ func, name, model }) {
     }
 
     const addToList = () => {
+        //todo check here
 
         if (item) {
             item.push(value)
@@ -114,16 +126,16 @@ export default function FormList({ func, name, model }) {
         }
 
         setValue({})
-        updateMainList()
+        //updateMainList()
     }
 
-    const deleteItem =(k) => {
+    const deleteItem = (k) => {
         let _item = []
 
-        item.map((i,x) => {
-            if(x != k){
+        item.map((i, x) => {
+            if (x != k) {
                 _item.push(i)
-            
+
             }
         })
 
@@ -132,8 +144,8 @@ export default function FormList({ func, name, model }) {
     }
 
     const updateMainList = () => {
-        
         func({ [model.name]: item })
+        
     }
 
     return (
@@ -145,7 +157,7 @@ export default function FormList({ func, name, model }) {
 
             <div className="max-w-sm w-full flex flex-wrap">
 
-                <RenderList data={item}/>
+                <RenderList data={item} />
             </div>
 
         </div>

@@ -8,7 +8,7 @@ export default function PlugOptions({ id, data }) {
 
         //console.log(router.query)
         //console.log(id)
-        console.log("current data",data)
+        //console.log("current data",data)
         return () => {
 
         }
@@ -26,14 +26,19 @@ export default function PlugOptions({ id, data }) {
             </div>
 
             <div className="w-full h-full flex p-2 justify-center">
-                {data.map((i,k) => {
-                    if(k < 3){
-                        return(
-                            <div className="m-1 p-2 w-1/3 text-center bg-gray-600 text-xl rounded">{i.name}</div>
+                {data ? data.map((i, k) => {
+                    if (k < 2) {
+                        return (
+                            <div key={k} className="m-1 p-2 w-1/3 text-center bg-gray-600 text-xl rounded">{i.name}</div>
+                        )
+                    } else if (k == 2) {
+                        return (
+                            <div key={k} className="m-1 p-2 w-1/3 text-center bg-gray-600 text-xl rounded">+{data.length -2}</div>
                         )
                     }
-                 
-                })}
+
+                }) : ""}
+
             </div>
 
 

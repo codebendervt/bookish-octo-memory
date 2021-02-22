@@ -27,7 +27,7 @@ export default function Options({ func, name, model }) {
                 return (
 
                     <Card>
-                        <div className="w-full h-full cursor-emoji" key={i} onClick={() => setOptions(i)}>
+                        <div className="w-full h-full cursor-emoji text-black" key={i} onClick={() => setOptions(i)}>
 
                             <div>{i}</div>
                         </div>
