@@ -63,11 +63,11 @@ export default function ModernForm({ type, mode, id, data, dataId = null,cat }) 
     return (
         <>
             <Head title="Sauveur Form" />
-            <div className="relative text-white">
+            <div className="relative text-white p-2 lg:p-0">
                 <Toolbar />
             </div>
 
-            <form action="/io/status/submit" method="GET" className="w-full h-full flex flex-col text-white">
+            <form action="/io/status/submit" method="GET" className="w-full h-full flex flex-col text-white py-8">
 
                 {
                     _data ? <FormModel type={type} modal={modal} length={length} data={data} _data={_data} id={id} mode={mode} dataId={dataId} cat={cat} /> : ""

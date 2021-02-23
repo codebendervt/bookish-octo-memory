@@ -9,7 +9,7 @@ export default {
             name: "type",
             label: "Plug Type",
             type: "options",
-            options: ["Product", "Service"]
+            options: ["product", "service"]
         }
     ]
 }

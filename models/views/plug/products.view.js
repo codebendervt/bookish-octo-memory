@@ -22,7 +22,7 @@ export default function ProductView({ data }) {
         // create a check to see if in dev or prod to send request
         if (data && _brand) {
             if (data.mode == "create") {
-                //console.log(data.cat)
+                console.log(data)
                 ProductCreate()
             } else {
 
@@ -50,7 +50,9 @@ export default function ProductView({ data }) {
             currency: "ZAR",
             limited: limited,
             quantity: stock,
-            brand: _brand.data.name
+            brand: _brand.data.name,
+            cat: data.cat,
+            type : data.model
         };
     }
 
@@ -67,7 +69,6 @@ export default function ProductView({ data }) {
             // console.log("paystack response", response)
             // _body.id = response.data.id;
 
-            _body.cat = data.cat
             let _plug = {
                 data: _body
             }
@@ -209,7 +210,7 @@ export default function ProductView({ data }) {
 
     return (
 
-        <Status url="/toolbox/plug/products" state={state} text={stateText} title="Product Update" />
+        <Status url="/toolbox/plug/" state={state} text={stateText} title="Product Update" />
 
     )
 }
