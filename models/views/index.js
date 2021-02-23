@@ -12,6 +12,8 @@ export default (view) => {
             return <BrandView data={view.data} id={view.data.id}/>
         case "product":
             return <ProductView data={view.data} id={view.data.id}/>
+        case "service":
+                return <ProductView data={view.data} id={view.data.id}/>
         case "guap":
                 return <GuapView data={view.data} id={view.data.id}/>
         default:

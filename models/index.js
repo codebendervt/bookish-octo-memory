@@ -12,6 +12,8 @@ import product from './plug/product';
             return  brand
         case "product":
             return  product 
+        case "service":
+                return  product 
         default:
             break;
     }
