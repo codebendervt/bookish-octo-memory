@@ -36,6 +36,8 @@ export default function Header({title,auth = true}) {
             {/* Global site tag (gtag.js) - Google Analytics  */}
             <script async src="https://www.googletagmanager.com/gtag/js?id=G-GV7Q7VQ7M6"></script>
             <script async src="/scripts/ga.js"></script><link href="/manifest.json" rel="manifest"></link>
+
+            <script async src="/scripts/context.js"></script>
             {/* <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/sortable.js"></script> */}
 
 
@@ -45,6 +47,10 @@ export default function Header({title,auth = true}) {
             <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
                 type="text/javascript" charSet="utf-8"></script>
         </Head>
+
+         <div className="lg:w-screen lg:h-screen lg:absolute lg:bg-black lg:z-20 ">
+
+        </div> 
         {/* {
             auth ?
             <InApp/> :<></>
