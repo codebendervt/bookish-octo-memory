@@ -1,7 +1,7 @@
 import { useEffect, useState, styles, Link } from '../../'
 
 
-export default function FormEdit({ type, name, label, value, func, index, image, uploaded, location, goto, model }) {
+export default function FormEdit({ type, name, label, value, func, index, image, uploaded, location, goto, model, modal }) {
 
     const [msg, setMsg] = useState('Upload product image')
     const [animation, setAnimation] = useState('')
@@ -28,7 +28,7 @@ export default function FormEdit({ type, name, label, value, func, index, image,
         <div id={name} className={`w-${colByType(type)} h-${heightByType(type)} p-2`}>
             <div className=" h-full bg-gray-800  rounded items-center flex relative flex-col items-center text-white">
 
-                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} location={location} index={index} goto={goto} model={model} />
+                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} location={location} index={index} goto={goto} model={model} modal={modal} />
             </div>
 
         </div>
@@ -40,7 +40,7 @@ export default function FormEdit({ type, name, label, value, func, index, image,
 //#region control
 
 
-const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation, location, index, goto, model }) => {
+const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation, location, index, goto, model, modal }) => {
 
     if (type == "file") {
         addFileListener()
@@ -68,12 +68,21 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
             <>
                 <div className="w-full  px-4">{label}</div>
 
-                <div onClick={() => goto(index)} className={styles.input + ' cursor-emoji w-full h-full'}>
-                    {value}
-                </div>
 
 
-                <input hidden type="text" defaultValue={value} name={name} hidden ></input>
+                {modal == "plug" ? <div onClick={() => goto(index)} className={styles.input + ' cursor-emoji w-full h-full'}>
+                    {value.name}
+                </div> : <div onClick={() => goto(index)} className={styles.input + ' cursor-emoji w-full h-full'}>
+                        {value}
+                    </div>}
+
+
+
+                {modal == "plug" ?
+                    <input hidden type="text" defaultValue={JSON.stringify(value)} name={name} hidden ></input> :
+                    <input hidden type="text" defaultValue={value} name={name} hidden ></input>
+                }
+            
             </>
 
         )
@@ -88,12 +97,12 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
                                 {
                                     model.data.map((v) => {
                                         return (
-                                          <div className="  bg-gray-700 w-full h-full">
+                                            <div className="  bg-gray-700 w-full h-full">
                                                 {
                                                     i[v.name]
                                                 }
                                             </div>
-                                           
+
 
                                         )
                                     })

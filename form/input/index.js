@@ -5,7 +5,7 @@ import Number from '../number'
 import Options from '../options'
 import FormList from '../list'
 
-export default function FormInput({ type, name, label, func, model, location }) {
+export default function FormInput({ type, name, label, func, model, location,modal }) {
 
     const [isNumber] =useState(type !== 'number')
     const [isList] = useState(type !== 'list')
@@ -25,7 +25,7 @@ export default function FormInput({ type, name, label, func, model, location }) 
 
 
 
-                <RenderControl model={model} name={name} type={type} location={location} func={func} label={label} />
+                <RenderControl model={model} name={name} type={type} location={location} func={func} label={label} modal={modal} />
 
                 {type != "location" && isNumber && isList && isOptions ?
                     <div className="w-32 px-2" id={name}>Required</div> : <></>}
@@ -41,7 +41,7 @@ export default function FormInput({ type, name, label, func, model, location }) 
 //#region control
 
 
-const RenderControl = ({ name, type, func, label, location,model }) => {
+const RenderControl = ({ name, type, func, label, location,model,modal }) => {
 
     if (type == 'textarea') {
         return (
@@ -64,7 +64,7 @@ const RenderControl = ({ name, type, func, label, location,model }) => {
         return (
             <div className="max-w-md flex flex-col h-full">
 
-                <Options model={model} func={func} name={name}/>
+                <Options model={model} func={func} name={name} modal={modal}/>
                
             </div>
         )

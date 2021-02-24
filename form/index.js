@@ -27,7 +27,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
     useEffect(() => {
 
 
-        console.log("current modal", modal)
+        //console.log("current modal", modal)
 
         try {
             setUser(getUser().data)
@@ -63,7 +63,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
                     return (
                         <div id={k} key={k} className={"w-full " + (state == k ? "animated fadeIn" : formState("hidden"))} >
 
-                            <FormInput func={createData} type={i.type} name={i.name} label={i.label} model={i} location={setLocation} />
+                            <FormInput func={createData} type={i.type} name={i.name} label={i.label} model={i} location={setLocation} modal={type} />
 
                         </div>
 
@@ -84,6 +84,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
                             index={k}
                             goto={setState}
                             model={i}
+                            modal={type}
                         />
                     )
                 })
