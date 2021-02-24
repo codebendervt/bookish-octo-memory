@@ -22,7 +22,8 @@ const cleanProduct = (data) => {
             name:data.name,
             quantity : data.quantity,
             cost : data.price * data.quantity,
-            price: data.price
+            price: data.price,
+            options: data.variant || null
         }
 }
 

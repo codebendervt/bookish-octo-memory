@@ -1,17 +1,17 @@
-import {$setLocalStorage,$getLocalStorage} from 'components'
+import {$setLocalStorage,$getLocalStorage,CreateToken,ReadToken} from 'components'
 
-const AddToStore = ( item ) => {
+const AddToStore = async ( item ) => {
 
     try{
 
         if($getLocalStorage('cart')){
-            let _storage = $getLocalStorage('cart')
+            let _storage = await ReadToken($getLocalStorage('cart'))
     
-            console.log('there is something in the cart', _storage)
-            item.id = _storage.cart.length
-            _storage.cart.push(item)
-            $setLocalStorage('cart',_storage)
-            console.log('after', _storage)
+            console.log('there is something in the cart', _storage.data)
+            item.id = _storage.data.cart.length
+            _storage.data.cart.push(item)
+            $setLocalStorage('cart', await CreateToken(_storage.data))
+            console.log('after', _storage.data)
     
         }else{
             let cart = []
@@ -19,7 +19,7 @@ const AddToStore = ( item ) => {
             cart.push(item)
     
             let _data = {cart: cart}
-            $setLocalStorage('cart',_data)
+            $setLocalStorage('cart',await CreateToken(_data))
         }
 
         return true

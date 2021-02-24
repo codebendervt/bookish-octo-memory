@@ -1,15 +1,15 @@
 import {$setLocalStorage,$getLocalStorage} from 'components'
 
-const DeleteInStore = ( id ) => {
+const DeleteInStore = async ( id ) => {
 
     try{
 
         if($getLocalStorage('cart')){
-            let _storage = $getLocalStorage('cart')
+            let _storage = await ReadToken($getLocalStorage('cart'))
             let _cart = []
     
-            console.log('there is something in the cart', _storage)
-            _storage.cart.map((i) => {
+            console.log('there is something in the cart', _storage.data)
+            _storage.data.cart.map((i) => {
 
                 if(i.id == id){
                     console.log('item wants to be deleted')
@@ -17,8 +17,8 @@ const DeleteInStore = ( id ) => {
                     _cart.push(i)
                 }
             })
-            _storage.cart = _cart
-            $setLocalStorage('cart',_storage)
+            _storage.data.cart = _cart
+            $setLocalStorage('cart', await CreateToken(_storage.data))
             console.log('after', _storage)
     
         }else{

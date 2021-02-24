@@ -1,4 +1,4 @@
-import { getAll, findById,findByIndex } from '../pages/api/storage/init';
+import { getAll, findById,findByIndex,read } from '../pages/api/storage/init';
 
 import Store from './store'
 import AddToStore from './store/utils/add'
@@ -14,7 +14,7 @@ import SecureIdentity from './identity/utils/secure'
 import {CreateToken,CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage,PlugProduct,UpdateCloudPlug} from './io'
 
 
-export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage,UpdateCloudPlug,PlugProduct}
+export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage,UpdateCloudPlug,PlugProduct,read}
 
 
 import {GetBanks,getUser,UpdateLocalGenus,getBrand} from './io'

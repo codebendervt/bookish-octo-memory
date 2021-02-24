@@ -1,14 +1,15 @@
-import {$getLocalStorage} from 'components'
+import {$getLocalStorage,ReadToken} from 'components'
 
-const GetStore = ( ) => {
+const GetStore = async ( ) => {
 
     let store = {}
 
     try{
 
         if($getLocalStorage('cart')){
-            store = $getLocalStorage('cart')
-
+            store = await ReadToken($getLocalStorage('cart'))
+            store = store.data
+          
     
         }else{
             store = {}
