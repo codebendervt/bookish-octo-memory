@@ -48,7 +48,7 @@ const isAuth = ({ auth, user, url, message, btn,children }) => {
     // console.log(getUser)
     // console.log(auth)
 
-    console.log("this is the ", user)
+    //console.log("this is the ", user)
 
     return () => {
 

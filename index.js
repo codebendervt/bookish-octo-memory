@@ -62,6 +62,6 @@ export {CleanOrder,InitProduct,cleanProduct}
 // UI Components
 
 import Card from './ui/card/'
+import InApp from './auth/inApp'
 
-
-export {Card}
+export {Card,InApp}

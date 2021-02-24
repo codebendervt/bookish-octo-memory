@@ -1,14 +1,15 @@
 
 import Head from 'next/head'
+import {InApp} from 'components'
 
-
-export default function Header(props) {
+export default function Header({title,auth = true}) {
 
 
     return (
+        <>
 
         <Head>
-            <title>{props.title || "Sauveur"}</title>
+            <title>{title || "Sauveur"}</title>
             <link rel="shortcut icon" type="image/jpg" href="/images/favicon.jpg" />
             <meta name="description" content="Yout Digital Backpack" />
             <meta name="author" content="Rawk" />
@@ -44,6 +45,11 @@ export default function Header(props) {
             <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
                 type="text/javascript" charSet="utf-8"></script>
         </Head>
+        {/* {
+            auth ?
+            <InApp/> :<></>
+        } */}
+        </>
 
     )
 }
