@@ -1,4 +1,4 @@
-import { $getLocalStorage, CreateToken } from 'components'
+import { $getLocalStorage, CreateToken,ReadToken } from 'components'
 
 const SecureStore = async (isCheckout = true) => {
 
@@ -8,15 +8,15 @@ const SecureStore = async (isCheckout = true) => {
     try {
 
         if ($getLocalStorage('cart')) {
-            store = $getLocalStorage('cart')
+            store = await ReadToken($getLocalStorage('cart'))
 
             if (isCheckout) {
 
-                store.order = "new"
-                store.payment = "pending"
+                store.data.order = "new"
+                store.data.payment = "pending"
             }
 
-            _secureStore = await CreateToken(store)
+            _secureStore = await CreateToken(store.data)
 
             //console.log("encrypted store",_secureStore)
 
