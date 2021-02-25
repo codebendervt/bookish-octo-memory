@@ -1,5 +1,5 @@
 import account from 'components/models/guap/account';
-import { getLocalStorage, setLocalStorage } from 'components';
+import { getLocalStorage, setLocalStorage,CreateToken } from 'components';
 import { RecieveAPI, APIEndpoint, RequestAPI, RemoveAPI } from '../../models/utils'
 
 
@@ -67,9 +67,13 @@ const InitTransaction = async (payload, brand, id) => {
         metadata: JSON.stringify(custom_fields)
     }
 
-    console.log('curent data', createTransaction)
+    //console.log('curent data', createTransaction)
 
-    const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
+     const transaction = await RequestAPI(APIEndpoint.transaction, CreateToken(createTransaction))
+
+
+
+    //console.log('curent data', transaction)
 
     return transaction
 }
@@ -92,7 +96,7 @@ const InitSimpleTransaction = async (payload, brand, id) => {
 
     console.log('curent data', createTransaction)
 
-    const transaction = await RequestAPI(APIEndpoint.transaction, createTransaction)
+    const transaction = await RequestAPI(APIEndpoint.transaction, CreateToken(createTransaction))
 
     return transaction
 }

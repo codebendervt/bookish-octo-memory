@@ -48,13 +48,7 @@ export default function Header({title,auth = true}) {
                 type="text/javascript" charSet="utf-8"></script>
         </Head>
 
-         <div className="lg:w-screen lg:h-screen lg:absolute lg:bg-black lg:z-20 ">
-
-        </div> 
-        {/* {
-            auth ?
-            <InApp/> :<></>
-        } */}
+     
         </>
 
     )

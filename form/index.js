@@ -246,13 +246,3 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
 
     )
 }
-
-{/* <ModernForm 
-mode={} 
-type={} 
-data={} 
-initData={} 
-modal={} 
-dataId={}
-    
-/> */}

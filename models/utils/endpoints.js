@@ -2,7 +2,7 @@ export default {
     createProduct : "/api/financial/paystack/transaction/product/",
     bank : "/api/financial/paystack/misc/bank",
     subaccount : "/api/financial/paystack/subaccount",
-    transaction : "/api/financial/paystack/transaction",
+    transaction : "/api/financial/paystack/transaction/secure",
     verifyTransact : "/api/financial/paystack/transaction/verify",
     backpack : "/api/storage/backpack",
     bacpackIdentity: "/api/storage/backpack/identity",

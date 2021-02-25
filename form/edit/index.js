@@ -79,10 +79,10 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
 
 
                 {modal == "plug" ?
-                    <input hidden type="text" defaultValue={JSON.stringify(value)} name={name} hidden ></input> :
-                    <input hidden type="text" defaultValue={value} name={name} hidden ></input>
+                    <input hidden type="text" defaultValue={JSON.stringify(value)} name={name} hidden />:
+                    <input hidden type="text" defaultValue={value} name={name} hidden />
                 }
-            
+
             </>
 
         )
