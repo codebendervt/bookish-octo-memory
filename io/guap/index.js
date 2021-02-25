@@ -69,7 +69,7 @@ const InitTransaction = async (payload, brand, id) => {
 
     //console.log('curent data', createTransaction)
 
-     const transaction = await RequestAPI(APIEndpoint.transaction, CreateToken(createTransaction))
+     const transaction = await RequestAPI(APIEndpoint.transaction, await CreateToken(createTransaction))
 
 
 
@@ -96,7 +96,7 @@ const InitSimpleTransaction = async (payload, brand, id) => {
 
     console.log('curent data', createTransaction)
 
-    const transaction = await RequestAPI(APIEndpoint.transaction, CreateToken(createTransaction))
+    const transaction = await RequestAPI(APIEndpoint.transaction, await CreateToken(createTransaction))
 
     return transaction
 }
