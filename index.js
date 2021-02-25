@@ -1,6 +1,6 @@
 import { getAll, findById,findByIndex,read } from '../pages/api/storage/init';
 
-// import {CreateToken, ReadToken} from '../pages/api/token/init'
+ import {CreateToken, ReadToken} from '../pages/api/token/init'
 
 import Store from './store'
 import AddToStore from './store/utils/add'
@@ -13,7 +13,7 @@ import GetIdentity from './identity/utils/get'
 import CreateIdentity from './identity/utils/add'
 import SecureIdentity from './identity/utils/secure'
 
-import {CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage,PlugProduct,UpdateCloudPlug,CommentOnIssue,CreateToken, ReadToken} from './io'
+import {CreateIssue,InitTransaction,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage,PlugProduct,UpdateCloudPlug,CommentOnIssue} from './io'
 
 
 export {getAll, findById, findByIndex, Store,AddToStore,GetStore,CreateIssue,GetIdentity,CreateIdentity,DeleteInStore,InitTransaction,CreateToken,SecureStore,SecureIdentity,CreateOrder,VerifyTransaction,UpdateCloudOrder,GetOrder,ReadToken,DeleteStore,GetGuap,InitSimpleTransaction,UpdateCloudBackpack,hasAccount,MenuConfig,Storage,UpdateCloudPlug,PlugProduct,read,CommentOnIssue}
