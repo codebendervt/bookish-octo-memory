@@ -7,7 +7,7 @@ import Modals from 'components/models'
 import styles from 'sauveur_style'
 import { $lg } from 'sauveur_core/utility';
 import { CreateIssue } from 'components/io';
-import Toolbar from 'sauveur_design/toolbar';
+import Toolbar from 'components/elements/onboarding/node_modules/sauveur_design/toolbar';
 
 export default function ModernForm({ type, mode, id, data, dataId = null,cat }) {
     // _data is the edited data

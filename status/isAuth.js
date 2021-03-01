@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { useReducer, useEffect, useState } from 'react';
-import { useRouter } from 'next/router'
-
-import Toolbar from 'sauveur_design/toolbar';
+import { useRouter } from 'next/router';
 
 
 const NavHeader = ({ name, model }) => {

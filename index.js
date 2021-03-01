@@ -66,4 +66,7 @@ export {CleanOrder,InitProduct,cleanProduct}
 import Card from './ui/card/'
 import InApp from './auth/inApp'
 
-export {Card,InApp}
+import Share from './elements/share'
+import Onboarding from './elements/onboarding'
+
+export {Card,InApp,Share,Onboarding}
