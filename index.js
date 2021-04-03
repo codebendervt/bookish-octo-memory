@@ -64,9 +64,9 @@ export {CleanOrder,InitProduct,cleanProduct}
 // UI Components
 
 import Card from './ui/card/'
-import InApp from './auth/inApp'
+import Container from './container'
 
 import Share from './elements/share'
 import Onboarding from './elements/onboarding'
 
-export {Card,InApp,Share,Onboarding}
+export {Card,Container,Share,Onboarding}

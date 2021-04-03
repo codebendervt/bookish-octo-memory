@@ -20,7 +20,7 @@ export default function ShareButton({ url,data,text }) {
   const shareData = (_data) => ({
     title: text,
     // text: 'Learn web development on MDN!',
-    url: `https://${url}${_data}`,
+    url: `${url}${_data}`,
   });
 
   const share = async (_data) => {
