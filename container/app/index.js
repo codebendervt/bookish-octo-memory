@@ -1,30 +1,80 @@
+import { useEffect, useState } from 'components'
+
+export default function App({ children }) {
+
+    const [visibile, setVisble] = useState(false)
+    const [view, setView] = useState(false)
+
+    useEffect(() => {
+
+        var intFrameWidth = window.innerWidth;
+
+        //console.log(intFrameWidth <= 640)
+        let isMobile = intFrameWidth <= 640
+        setView(isMobile)
+        window.addEventListener('scroll', function (e) {
 
 
-export default function App({children}) {
+            let y = this.scrollY
+
+            //let yMax = window.scrollMaxY
+
+            console.log("new", y)
+
+            let scrollUp = this.oldScroll > this.scrollY;
+            this.oldScroll = this.scrollY;
+            console.log(scrollUp)
+
+            if (scrollUp) {
+
+                setVisble(false)
+            } else {
+
+
+                setVisble(true)
+            }
+
+
+
+        });
+
+
+        return () => {
+
+        }
+    }, [])
 
     return (
 
 
-            <div className="h-full w-full bg-black text-white">
 
-                <div className="h-screen w-full bg-black">
-                    {children[0]}
-                </div>
+        view ? <div className="h-full w-full bg-black text-white flex flex-col">
 
-                <div className="h-full w-full bg-black">
-                {children[1]}
-                    {/* content goes here */}
-                    <div className="w-full h-24 bg-white sticky bottom-0 ">
-                        {children[2]}
-                    </div>
-                </div>
+            <div className="h-auto w-full bg-black flex-grow">
 
+                {children[0]}
             </div>
 
+            <div className="h-full w-full bg-black">
+                {children[1]}
+
+
+                <div className={`w-full bg-white sticky bottom-0 text-black  ${visibile ? "p-2" : "h-0"}`}>
+                    {children[2]}
+
+                </div>
+            </div>
+
+        </div> : <>not supported</>
 
 
 
-      
+
+
+
+
+
+
 
     )
 }
