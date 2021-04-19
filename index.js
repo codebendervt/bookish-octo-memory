@@ -63,8 +63,8 @@ export {CleanOrder,InitProduct,cleanProduct}
 
 // UI Components
 
-import Toolbar from './design/toolbar'
-import Card from './ui/card/'
+import Toolbar from '../core/design/toolbar'
+import Card from './ui/card'
 
 
 export {Card,Toolbar}

@@ -1,5 +1,5 @@
 
-import { getLocalStorage,setLocalStorage } from '../../';
+import { getLocalStorage,setLocalStorage } from '../..';
 import { RequestAPI, APIEndpoint, PushAPI, RemoveAPI } from '../../models/utils'
 
 

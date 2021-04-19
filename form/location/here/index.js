@@ -1,4 +1,4 @@
-import { useEffect, useState,styles } from '../../../'
+import { useEffect, useState,styles } from '../../..'
 
 export default function Location({location}) {
 

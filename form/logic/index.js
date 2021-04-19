@@ -1,4 +1,4 @@
-import { useEffect, useState, Card } from '../../'
+import { useEffect, useState, Card } from '../..'
 
 
 export default function Options({ func, name, model, modal, Control }) {

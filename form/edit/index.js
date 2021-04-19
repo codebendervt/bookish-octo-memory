@@ -1,4 +1,4 @@
-import { useEffect, useState, styles, Link } from '../../'
+import { useEffect, useState, styles, Link } from '../..'
 
 
 export default function FormEdit({ type, name, label, value, func, index, image, uploaded, location, goto, model, modal, data }) {
