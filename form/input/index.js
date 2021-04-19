@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
-import {styles} from 'components'
+import { styles } from 'components'
 import Location from '../location'
 import Number from '../number'
 import Options from '../options'
 import FormList from '../list'
+import Logic from '../logic'
 
-export default function FormInput({ type, name, label, func, model, location,modal }) {
+export default function FormInput({ type, name, label, func, model, location, modal }) {
 
-    const [isNumber] =useState(type !== 'number')
+    const [isNumber] = useState(type !== 'number')
     const [isList] = useState(type !== 'list')
     const [isOptions] = useState(type !== 'options')
+    const [isLogic] = useState(type !== 'logic')
 
 
 
@@ -17,11 +19,11 @@ export default function FormInput({ type, name, label, func, model, location,mod
 
         <div className={"p-4"}>
             {
-                isNumber ? 
-                <h1 className={styles.title}>{label}</h1> :<></>
+                isNumber ?
+                    <h1 className={styles.title}>{label}</h1> : <></>
             }
 
-            <div className={isNumber && isList && isOptions ? styles.input_border: ""}>
+            <div className={isNumber && isList && isOptions &&isLogic ? styles.input_border : ""}>
 
 
 
@@ -41,7 +43,7 @@ export default function FormInput({ type, name, label, func, model, location,mod
 //#region control
 
 
-const RenderControl = ({ name, type, func, label, location,model,modal }) => {
+const RenderControl = ({ name, type, func, label, location, model, modal,trigger }) => {
 
     if (type == 'textarea') {
         return (
@@ -56,16 +58,16 @@ const RenderControl = ({ name, type, func, label, location,model,modal }) => {
         return (
             <div className="w-full flex-col h-full">
 
-                <Number placeholder={model.placeholder} func={func} name={name} label={label}  />
+                <Number placeholder={model.placeholder} func={func} name={name} label={label} />
             </div>
         )
 
-    }else if (type == "options") {
+    } else if (type == "options") {
         return (
-            <div className="max-w-md flex flex-col h-full">
+            <div className={`max-w-xl w-full flex flex-col h-full`}>
+                <div className="font-default-sub-title text-lg">{label}</div>
+                <Options model={model} func={func} name={name} modal={modal} trigger={trigger} />
 
-                <Options model={model} func={func} name={name} modal={modal}/>
-               
             </div>
         )
 
@@ -73,12 +75,21 @@ const RenderControl = ({ name, type, func, label, location,model,modal }) => {
         return (
             <div className="w-full flex flex-col h-full">
 
-               <FormList model={model} func={func} name={name}/>
-               
+                <FormList model={model} func={func} name={name} />
+
             </div>
         )
 
-    }else {
+    } else if (type == "logic") {
+        return (
+            <div className="w-full flex h-full">
+             
+                <Logic model={model} name={name} func={func} Control={RenderControl} modal={modal} />
+
+            </div>
+        )
+
+    } else {
         return (
             <input placeholder={model.placeholder || name} className={styles.input} onChange={func} type={type} name={name} required></input>
         )

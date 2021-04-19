@@ -78,6 +78,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
                             name={i.name}
                             label={i.label}
                             value={_data[i.name]}
+                            data={_data}
                             func={editData}
                             mode={mode}
                             location={location}
@@ -201,7 +202,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
         isBrand ? <>
             <form action={url} method="GET" className={`w-full h-screen flex flex-col  `}>
 
-                <div className={`flex flex-col w-full h-full lg:w-screen lg:h-screen realtive `}>
+                <div className={`flex flex-col w-full h-full lg:w-screen lg:h-screen realtive lg:py-8`}>
 
                     <div  className="absolute  w-full px-4 p-2 flex justify-end z-20">
                         <div className="font-default-accent  cursor-emoji " onClick={() => formBack()}>go back</div>
