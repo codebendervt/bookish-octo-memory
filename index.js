@@ -64,7 +64,8 @@ export {CleanOrder,InitProduct,cleanProduct}
 // UI Components
 
 import Toolbar from '../core/design/toolbar'
+import Container from 'components/container'
 import Card from './ui/card'
 
 
-export {Card,Toolbar}
+export {Card,Toolbar,Container}
