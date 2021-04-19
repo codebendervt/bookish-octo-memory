@@ -1,6 +1,6 @@
 import { useRouter, useEffect,useState } from 'components'
 
-export default function Layout({ children, auth,dark }) {
+export default function Layout({ children, auth,dark,app }) {
 
     const router = useRouter();
     const [isDark,setDark] = useState();
@@ -34,7 +34,7 @@ export default function Layout({ children, auth,dark }) {
 
     return (
 
-        <div className={`w-full h-full flex dark:bg-primary-900 dark:text-white ${auth ? "" : "hidden"}`}>
+        <div  className={`w-full h-full flex   ${app? "flex-col":"flex-row"} dark:bg-primary-900 dark:text-white ${auth ? "" : "hidden"}`}>
 
             {children}
 
