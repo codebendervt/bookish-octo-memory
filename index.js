@@ -65,7 +65,8 @@ export {CleanOrder,InitProduct,cleanProduct}
 
 import Toolbar from '../core/design/toolbar'
 import Container from 'components/container'
+import Share from 'components/elements/share'
 import Card from './ui/card'
 
 
-export {Card,Toolbar,Container}
+export {Card,Toolbar,Container,Share}
