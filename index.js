@@ -65,6 +65,6 @@ export {CleanOrder,InitProduct,cleanProduct}
 
 import Toolbar from './design/toolbar'
 import Card from './ui/card/'
-import InApp from './auth/inApp'
 
-export {Card,InApp,Toolbar}
+
+export {Card,Toolbar}
