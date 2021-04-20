@@ -1,9 +1,10 @@
 import { useEffect, useState, Card } from '../..'
 
 
-export default function Options({ func, name, model, modal, Control }) {
+export default function Logic({ func, name, model, modal, Control }) {
 
-    const [value, setValue] = useState(false)
+    const [value] = useState(model.steps)
+    const [count, setCount] = useState(0)
     const [logicState, setLogicState] = useState()
 
     useEffect(() => {
@@ -30,17 +31,17 @@ export default function Options({ func, name, model, modal, Control }) {
 
 
     const cleanup = () => {
-        // location(value)
-        // console.log("location figured", value)
+        setLogicState()
     }
 
     const changeLogic = (e) => {
         console.log(e)
+        setCount(count + 1)
         setLogicState(e)
     }
 
     const renderLogic = (data) => {
-
+        console.log(data)
         return (
             <Control model={data} name={data.name} type={data.type} func={func} label={data.label} modal={modal} trigger={changeLogic} />
         )
@@ -48,18 +49,28 @@ export default function Options({ func, name, model, modal, Control }) {
 
     }
 
-    const CreateLogic = ({position}) => {
+    const CreateLogic = ({ position }) => {
 
-        if (position >= 0) {
-            return (
-                renderLogic(model.step.step[position])
-            )
+        console.log(position)
 
-        } else {
-            return (
-                renderLogic(model.step)
+
+        if (count <= value) {
+            if (position >= 0) {
+                return (
+                    renderLogic(model.step.step[position])
+                )
+
+            } else {
+                return (
+                    renderLogic(model.step)
+                )
+            }
+        }else{
+            return(
+                <>{model.message}</>
             )
         }
+
 
 
     }
@@ -69,7 +80,7 @@ export default function Options({ func, name, model, modal, Control }) {
     return (
 
         <div className="w-full flex flex-wrap">
-           <CreateLogic position={logicState}/>
+            <CreateLogic key={logicState} position={logicState} />
         </div>
     )
 }

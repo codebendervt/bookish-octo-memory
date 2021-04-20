@@ -28,7 +28,7 @@ export default function Options({ func, name, model, modal, trigger }) {
                 return (
 
                     <Card key={i+k}>
-                        <div className="w-full h-full cursor-emoji text-black" key={i} onClick={() => setOptions(i, k)}>
+                        <div className="w-full h-full cursor-emoji text-black flex items-end" key={i} onClick={() => setOptions(i, k)}>
 
                             <div>{i}</div>
                         </div>

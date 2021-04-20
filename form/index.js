@@ -63,7 +63,7 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
                     return (
                         <div id={k} key={k} className={"w-full " + (state == k ? "animated fadeIn" : formState("hidden"))} >
 
-                            <FormInput func={createData} type={i.type} name={i.name} label={i.label} model={i} location={setLocation} modal={type} />
+                            <FormInput key={k+i.type} func={createData} type={i.type} name={i.name} label={i.label} model={i} location={setLocation} modal={type} />
 
                         </div>
 
@@ -202,13 +202,13 @@ export default function Form({ mode, type, data, initData = {}, modal, dataId, c
         isBrand ? <>
             <form action={url} method="GET" className={`w-full h-screen flex flex-col  `}>
 
-                <div className={`flex flex-col w-full h-full lg:w-screen lg:h-screen realtive lg:py-8`}>
+                <div className={`flex flex-col w-full h-full lg:w-screen lg:h-screen realtive py-2 lg:py-4`}>
 
-                    <div  className="absolute  w-full px-4 p-2 flex justify-end z-20">
+                    <div  className="absolute w-full px-4 flex justify-end z-20">
                         <div className="font-default-accent  cursor-emoji " onClick={() => formBack()}>go back</div>
                         
                         </div>
-                    <div className="flex-grow w-full overflow-y-scroll hidescroll p-2 py-8 lg:py-0">
+                    <div className="flex-grow w-full overflow-y-scroll hidescroll py-4 lg:py-0">
                         <div className={(isMode ? "w-full flex justify-center flex-grow h-auto lg:flex-col" : "w-full flex flex-wrap lg:max-w-lg")}>
 
                             {renderForm(_data)}

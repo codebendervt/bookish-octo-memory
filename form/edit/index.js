@@ -55,7 +55,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
     } else if (type == "location") {
         return (
             <>
-                <div className="w-full  px-4">{label}</div>
+                <div className="w-full  px-2">{label}</div>
                 <div className=" text-sm w-full h-full flex items-center px-4 ">{location.location}
                     <input hidden type="text" defaultValue={JSON.stringify(location)} name="location" hidden ></input>
                 </div>
@@ -66,7 +66,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
         return (
 
             <>
-                <div className="w-full  px-4">{label}</div>
+                <div className="w-full  px-2">{label}</div>
 
 
 
@@ -130,9 +130,10 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
             </div>
 
             {
-                model.step.step.map((i) => {
+                model.step.step.map((i,k) => {
 
-                    if (data[i.name]) {
+                    //this is limited to just one logic step
+                    if (data[i.name] && k < 1) {
 
                         return (
                             <input key={i.name} hidden type="text" defaultValue={data[i.name]} name={i.name} hidden ></input>
