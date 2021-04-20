@@ -34,7 +34,6 @@ const UpdateLocalBackpack = async (email, newdevice = false) => {
 
 const UpdateCloudBackpack = async (id, data) => {
 
-    console.log(data)
     let _data = {
         id: id,
         data: {
