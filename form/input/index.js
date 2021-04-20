@@ -29,7 +29,7 @@ export default function FormInput({ type, name, label, func, model, location, mo
 
                 <RenderControl model={model} name={name} type={type} location={location} func={func} label={label} modal={modal} />
 
-                {type != "location" && isNumber && isList && isOptions ?
+                {type != "location" && isNumber && isList && isOptions && isLogic ?
                     <div className="w-32 px-2" id={name}>Required</div> : <></>}
 
 

@@ -34,12 +34,15 @@ const UpdateLocalBackpack = async (email, newdevice = false) => {
 
 const UpdateCloudBackpack = async (id, data) => {
 
+    console.log(data)
     let _data = {
         id: id,
         data: {
             data: data
         }
     }
+
+    console.log(_data)
 
     console.log("data to update on backpack", _data)
     let response = await PushAPI(APIEndpoint.backpack, _data)

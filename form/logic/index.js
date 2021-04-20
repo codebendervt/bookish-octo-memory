@@ -41,7 +41,7 @@ export default function Logic({ func, name, model, modal, Control }) {
     }
 
     const renderLogic = (data) => {
-        console.log(data)
+
         return (
             <Control model={data} name={data.name} type={data.type} func={func} label={data.label} modal={modal} trigger={changeLogic} />
         )
@@ -50,8 +50,6 @@ export default function Logic({ func, name, model, modal, Control }) {
     }
 
     const CreateLogic = ({ position }) => {
-
-        console.log(position)
 
 
         if (count <= value) {
@@ -65,8 +63,8 @@ export default function Logic({ func, name, model, modal, Control }) {
                     renderLogic(model.step)
                 )
             }
-        }else{
-            return(
+        } else {
+            return (
                 <>{model.message}</>
             )
         }
