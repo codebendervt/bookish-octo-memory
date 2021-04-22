@@ -48,7 +48,10 @@ export default function Header({ title, auth = true }) {
                     type="text/javascript" charSet="utf-8"></script>
 
                 {/* Heap */}
-                <script async src="/scripts/heap.js" type="text/javascript"></script>
+                {
+                    process.env.NODE_ENV == "production" ? <script async src="/scripts/heapProd.js" type="text/javascript"></script> : <script async src="/scripts/heap.js" type="text/javascript"></script>
+                }
+
             </Head>
 
 
