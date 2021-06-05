@@ -63,7 +63,10 @@ export {CleanOrder,InitProduct,cleanProduct}
 
 // UI Components
 
-import Card from './ui/card/'
-import InApp from './auth/inApp'
+import Toolbar from '../core/design/toolbar'
+import Container from 'components/container'
+import Share from 'components/elements/share'
+import Card from './ui/card'
 
-export {Card,InApp}
+
+export {Card,Toolbar,Container,Share}

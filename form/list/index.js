@@ -1,5 +1,5 @@
 import { object } from 'into-stream'
-import { useEffect, useState, styles } from '../../'
+import { useEffect, useState, styles } from '../..'
 
 
 export default function FormList({ func, name, model }) {

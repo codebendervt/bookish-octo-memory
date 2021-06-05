@@ -1,7 +1,7 @@
-import { useEffect, useState, Card } from '../../'
+import { useEffect, useState, Card } from '../..'
 
 
-export default function Options({ func, name, model,modal }) {
+export default function Options({ func, name, model, modal, trigger }) {
 
     const [value, setValue] = useState(false)
 
@@ -24,11 +24,11 @@ export default function Options({ func, name, model,modal }) {
     const renderOptions = (m) => {
 
         return (
-            m.options.map((i,k) => {
+            m.options.map((i, k) => {
                 return (
 
-                    <Card>
-                        <div className="w-full h-full cursor-emoji text-black" key={i} onClick={() => setOptions(i,k)}>
+                    <Card key={i+k}>
+                        <div className="w-full h-full cursor-emoji text-black flex items-end" key={i} onClick={() => setOptions(i, k)}>
 
                             <div>{i}</div>
                         </div>
@@ -41,15 +41,19 @@ export default function Options({ func, name, model,modal }) {
 
     }
 
-    const setOptions = (term,index) => {
+    const setOptions = (term, index) => {
 
         setValue(term)
 
-        if(modal == "plug"){
+        if (modal == "plug") {
             func({ [name]: model.values[index] })
-        }else{
+        } else {
 
             func({ [name]: term })
+        }
+
+        if (trigger) {
+            trigger(index)
         }
 
     }

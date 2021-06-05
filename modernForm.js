@@ -1,4 +1,4 @@
-import Head from 'components/head'
+import {Head,Toolbar} from 'components'
 import FormModel from 'components/models/forms'
 import EditData from 'components/models/forms/edit'
 import { useRouter } from 'next/router'
@@ -7,7 +7,7 @@ import Modals from 'components/models'
 import styles from 'sauveur_style'
 import { $lg } from 'sauveur_core/utility';
 import { CreateIssue } from 'components/io';
-import Toolbar from 'sauveur_design/toolbar';
+
 
 export default function ModernForm({ type, mode, id, data, dataId = null,cat }) {
     // _data is the edited data

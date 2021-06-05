@@ -1,5 +1,5 @@
 import { RequestAPI, APIEndpoint, PushAPI } from '../../models/utils'
-import { setLocalStorage } from '../../';
+import { setLocalStorage } from '../..';
 
 
 const BackpackIdentity = async (id) => {
@@ -40,6 +40,8 @@ const UpdateCloudBackpack = async (id, data) => {
             data: data
         }
     }
+
+    console.log(_data)
 
     console.log("data to update on backpack", _data)
     let response = await PushAPI(APIEndpoint.backpack, _data)

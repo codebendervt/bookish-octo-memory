@@ -1,7 +1,7 @@
-import { useEffect, useState, styles, Link } from '../../'
+import { useEffect, useState, styles, Link } from '../..'
 
 
-export default function FormEdit({ type, name, label, value, func, index, image, uploaded, location, goto, model, modal }) {
+export default function FormEdit({ type, name, label, value, func, index, image, uploaded, location, goto, model, modal, data }) {
 
     const [msg, setMsg] = useState('Upload product image')
     const [animation, setAnimation] = useState('')
@@ -28,7 +28,7 @@ export default function FormEdit({ type, name, label, value, func, index, image,
         <div id={name} className={`w-${colByType(type)} h-${heightByType(type)} p-2`}>
             <div className=" h-full bg-gray-800  rounded items-center flex relative flex-col items-center text-white">
 
-                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} location={location} index={index} goto={goto} model={model} modal={modal} />
+                <RenderControl name={name} value={value} type={type} func={func} label={label} image={image} uploaded={uploaded} msg={msg} animation={animation} location={location} index={index} goto={goto} model={model} modal={modal} data={data} />
             </div>
 
         </div>
@@ -40,7 +40,7 @@ export default function FormEdit({ type, name, label, value, func, index, image,
 //#region control
 
 
-const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation, location, index, goto, model, modal }) => {
+const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, animation, location, index, goto, model, modal, data }) => {
 
     if (type == "file") {
         addFileListener()
@@ -55,7 +55,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
     } else if (type == "location") {
         return (
             <>
-                <div className="w-full  px-4">{label}</div>
+                <div className="w-full  px-2">{label}</div>
                 <div className=" text-sm w-full h-full flex items-center px-4 ">{location.location}
                     <input hidden type="text" defaultValue={JSON.stringify(location)} name="location" hidden ></input>
                 </div>
@@ -66,20 +66,20 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
         return (
 
             <>
-                <div className="w-full  px-4">{label}</div>
+                <div className="w-full  px-2">{label}</div>
 
 
 
                 {modal == "plug" ? <div onClick={() => goto(index)} className={styles.input + ' cursor-emoji w-full h-full'}>
                     {value.name}
                 </div> : <div onClick={() => goto(index)} className={styles.input + ' cursor-emoji w-full h-full'}>
-                        {value}
-                    </div>}
+                    {value}
+                </div>}
 
 
 
                 {modal == "plug" ?
-                    <input hidden type="text" defaultValue={JSON.stringify(value)} name={name} hidden />:
+                    <input hidden type="text" defaultValue={JSON.stringify(value)} name={name} hidden /> :
                     <input hidden type="text" defaultValue={value} name={name} hidden />
                 }
 
@@ -97,7 +97,7 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
                                 {
                                     model.data.map((v) => {
                                         return (
-                                            <div className="  bg-gray-700 w-full h-full">
+                                            <div key={v.name} className="  bg-gray-700 w-full h-full">
                                                 {
                                                     i[v.name]
                                                 }
@@ -121,6 +121,32 @@ const RenderControl = ({ name, value, type, func, label, image, uploaded, msg, a
             </div>
 
         )
+    } else if (type == "logic") {
+
+        return (<>
+            <div className="w-full  px-2">{model.step.label}</div>
+            <div onClick={() => goto(index)} className={styles.input + ' cursor-emoji w-full h-full'}>
+                {data[model.step.name]}
+            </div>
+
+            {
+                model.step.step.map((i,k) => {
+
+                    //this is limited to just one logic step
+                    if (data[i.name] && k < 1) {
+
+                        return (
+                            <input key={i.name} hidden type="text" defaultValue={data[i.name]} name={i.name} hidden ></input>
+                        )
+
+                    }
+                })
+            }
+
+            <input hidden type="text" defaultValue={data[model.step.name]} name={[model.step.name]} hidden ></input>
+
+        </>)
+
     } else {
         return (
             <>
