@@ -5,14 +5,12 @@ import { useEffect, useState } from 'components';
 export default function FeaturedShow({ featuredVideo }) {
 
     const [playVideo, isPlay] = useState(false)
-    const [ready, isReady] = useState(false)
     const [video, setVideo] = useState()
 
 
     useEffect(() => {
 
-        console.log("featuredVideo", featuredVideo)
-        
+      
         featuredVideo ? featuredVideo.length > 0 ? setVideo(featuredVideo[0]) : setVideo(false) :setVideo(false)
 
         return () => {

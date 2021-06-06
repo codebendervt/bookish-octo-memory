@@ -11,7 +11,7 @@ export default function ShowMenu({ shows, isReady, setStage }) {
 
     useEffect(() => {
 
-        console.log("SHow Menu", shows)
+       // console.log("SHow Menu", shows)
         try {
 
             if (shows) {
@@ -34,7 +34,7 @@ export default function ShowMenu({ shows, isReady, setStage }) {
 
     useEffect(() => {
 
-        console.log(categories)
+        //console.log(categories)
 
         return () => {
 
