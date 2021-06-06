@@ -49,7 +49,7 @@ export default function FeaturedShow({ featuredVideo }) {
                 </div>
 
                 <iframe id="player" type="text/html" className={`w-full h-full absolute ${playVideo ? "z-40" : ""}`}
-                    src={`http://www.youtube.com/embed/${video.items[0].id}?enablejsapi=1`}
+                    src={`https://www.youtube.com/embed/${video.items[0].id}?enablejsapi=1`}
                     frameBorder="0" allowFullScreen></iframe>
             </div>
 
